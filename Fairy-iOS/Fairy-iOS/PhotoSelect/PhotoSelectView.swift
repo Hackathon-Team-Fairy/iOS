@@ -165,7 +165,7 @@ struct PhotoControlButton: View{
                         .resizable()
                         .scaledToFit()
                         .frame(width: 28, height: 28)
-                    Text("앨범에서 가져오기")
+                    Text("동화 이미지 선택하기")
                         .font(.system(size: 15))
                         .foregroundColor(.white)
                 }

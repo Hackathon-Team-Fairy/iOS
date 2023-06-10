@@ -80,6 +80,7 @@ final class FairyListCollectionViewCell: UICollectionViewCell {
         labelStackView.snp.makeConstraints {
             $0.bottom.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(50)
         }
         
         coverView.snp.makeConstraints {

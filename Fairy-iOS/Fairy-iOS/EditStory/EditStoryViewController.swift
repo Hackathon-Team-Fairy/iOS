@@ -13,7 +13,7 @@ class EditStoryViewController: UIViewController {
     
     private let selectThumbNailButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .gray
+        button.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 1)
         button.layer.cornerRadius = 15
         button.setTitle("표지선택하러가기", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
