@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import SwiftKeychainWrapper
 
 final class SplashViewController: UIViewController {
     
@@ -60,8 +61,8 @@ final class SplashViewController: UIViewController {
         )
         NetworkService.shared.load(resource) { result in
             switch result {
-            case .success(let success):
-                print(success)
+            case .success(let response):
+                KeychainWrapper.standard.set(response.accessToken, forKey: Utils.ACCESS_TOEKN) 
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
