@@ -25,6 +25,7 @@
 		EEB07AC72A345234003C6AAA /* FairytaleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AC62A345234003C6AAA /* FairytaleListViewController.swift */; };
 		EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */; };
 		EEB07ACE2A345F2C003C6AAA /* FairyListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */; };
+		EEB07AD22A347588003C6AAA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EEB07AD12A347588003C6AAA /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB07AD22A347588003C6AAA /* Kingfisher in Frameworks */,
 				EEB07AB82A343AFE003C6AAA /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +202,7 @@
 			name = "Fairy-iOS";
 			packageProductDependencies = (
 				EEB07AB72A343AFE003C6AAA /* SnapKit */,
+				EEB07AD12A347588003C6AAA /* Kingfisher */,
 			);
 			productName = "Fairy-iOS";
 			productReference = EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */;
@@ -231,6 +234,7 @@
 			mainGroup = EEB07A962A34394D003C6AAA;
 			packageReferences = (
 				EEB07AB62A343AFE003C6AAA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EEB07AD02A347588003C6AAA /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = EEB07AA02A34394D003C6AAA /* Products */;
 			projectDirPath = "";
@@ -492,6 +496,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		EEB07AD02A347588003C6AAA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -499,6 +511,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EEB07AB62A343AFE003C6AAA /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		EEB07AD12A347588003C6AAA /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEB07AD02A347588003C6AAA /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
