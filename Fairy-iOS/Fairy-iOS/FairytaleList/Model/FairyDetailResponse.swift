@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FairyDetailResponse {
+struct FairyDetailResponse: Decodable {
     let fairyTaleId: Int
     let fairyTaleTitle: String
     let fairyTaleCoverUrl: String

@@ -214,7 +214,8 @@ extension FairytaleListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = datasource?.itemIdentifier(for: indexPath) else { return }
         // TODO: 화면 이동
-        print(item)
+        let readingStoryViewController =  ReadingStoryViewController(id: item.fairyTaleId)
+        navigationController?.pushViewController(readingStoryViewController, animated: true)
     }
 }
 
