@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import SnapKit
+import SwiftKeychainWrapper
 
 class PhotoSelectViewController: UIViewController {
     private let completeButton: UIButton = {
@@ -48,8 +49,50 @@ class PhotoSelectViewController: UIViewController {
     
     @objc
     private func selectButtonTouchUpInside() {
-        let creatingFairyTaleViewController = PhotoSelectViewController()
-        navigationController?.pushViewController(creatingFairyTaleViewController, animated: true)
+        let fairyMakingSource = FairyMakingSource.shared
+        let request = DiaryResponse(title: fairyMakingSource.title, content: [fairyMakingSource.story1, fairyMakingSource.story2, fairyMakingSource.story3, fairyMakingSource.story4], coverUrl: fairyMakingSource.imageURL ?? "")
+        
+        if let jsonData = try? JSONEncoder().encode(request) {
+            let resource = Resource<DiaryResponse>(
+                base: Utils.BASE_URL + "diary",
+                method: .POST,
+                paramaters: [:],
+                header:  ["Authorization": "Bearer \(KeychainWrapper.standard.string(forKey: Utils.ACCESS_TOEKN) ?? "")" ],
+                body: jsonData)
+            
+            NetworkService.shared.load(resource) { response in
+                switch response {
+                case .success(let response):
+                    print(response)
+                    DispatchQueue.main.async {
+                        let navigaionViewController = UINavigationController(rootViewController: FairytaleListViewController())
+                        self.changeRootViewController(navigaionViewController)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        
+        
+    }
+    
+    private func changeRootViewController(_ viewControllerToPresent: UIViewController) {
+        if let window = UIApplication.shared.windows.first {
+            window.rootViewController = viewControllerToPresent
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil)
+        } else {
+            viewControllerToPresent.modalPresentationStyle = .overFullScreen
+            self.present(viewControllerToPresent, animated: true, completion: nil)
+        }
     }
     
 }
+
+struct DiaryResponse: Codable {
+    let title: String
+    let content: [String]
+    let coverUrl: String
+}
+
+
