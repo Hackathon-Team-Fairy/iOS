@@ -51,10 +51,11 @@ final class BasePhotoSelectViewConotroller: UIViewController {
     
     private let selectButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 1)
+        button.backgroundColor = .lightGray
         button.layer.cornerRadius = 15
         button.setTitle("선택하기", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
+        button.isEnabled = false
         return button
     }()
     
@@ -249,6 +250,8 @@ extension BasePhotoSelectViewConotroller: UICollectionViewDelegate {
             for i in 0..<imageDict[selectedCategory, default: []].count {
                 imageDict[selectedCategory, default: []][i].isSelected = item.image == imageDict[selectedCategory, default: []][i].image
             }
+            selectButton.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 1)
+            selectButton.isEnabled = true
             thumbnailImageView.kf.setImage(with: url)
             selectedImageURL = item.image
         }
