@@ -65,7 +65,7 @@ final class BasePhotoSelectViewConotroller: UIViewController {
     
     private var categoryDatasource: UICollectionViewDiffableDataSource<CategorySection, CategoryItem>?
     private var photoDatasource: UICollectionViewDiffableDataSource<PhotoSection, PhotoItem>?
-    
+    private var photoSnapshot: NSDiffableDataSourceSnapshot<PhotoSection, PhotoItem>?
     private var selectedCategory: String?
     private var selectedImageURL: String?
     
@@ -206,9 +206,19 @@ final class BasePhotoSelectViewConotroller: UIViewController {
                 response.forEach { self.imageDict[$0.type] = $0.imagesList.map { PhotoItem(image: $0) }  }
                 var categorySnapshot = NSDiffableDataSourceSnapshot<CategorySection, CategoryItem>()
                 categorySnapshot.appendSections([.main])
-                categorySnapshot.appendItems(self.imageDict.keys.map { String($0) })
-                print(self.imageDict.keys.map { String($0) })
+                categorySnapshot.appendItems(self.imageDict.keys.map { String($0) }.sorted())
                 self.categoryDatasource?.apply(categorySnapshot)
+                
+                let firstCategory = self.imageDict.keys.map { String($0) }.sorted().first!
+                
+                self.photoSnapshot = NSDiffableDataSourceSnapshot<PhotoSection, PhotoItem>()
+                self.photoSnapshot?.appendSections([.main])
+                self.photoSnapshot?.appendItems(self.imageDict[firstCategory, default: []], toSection: .main)
+
+                
+                if let photoSnapshot = self.photoSnapshot {
+                    self.photoDatasource?.apply(photoSnapshot)
+                }
                 
             case .failure(let error):
                 print(error.localizedDescription)
@@ -236,22 +246,19 @@ extension BasePhotoSelectViewConotroller: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView,
            let item = categoryDatasource?.itemIdentifier(for: indexPath) {
-            var photoSnapshot = NSDiffableDataSourceSnapshot<PhotoSection, PhotoItem>()
-            photoSnapshot.appendSections([.main])
-            photoSnapshot.appendItems(imageDict[item, default: []], toSection: .main)
+            self.photoSnapshot = NSDiffableDataSourceSnapshot<PhotoSection, PhotoItem>()
+            self.photoSnapshot?.appendSections([.main])
+            self.photoSnapshot?.appendItems(imageDict[item, default: []], toSection: .main)
             selectedCategory = item
             
-            
-            photoDatasource?.apply(photoSnapshot)
+            if let photoSnapshot {
+                photoDatasource?.apply(photoSnapshot)
+            }
         }
         
         if collectionView == photoCollectionView,
            let item = photoDatasource?.itemIdentifier(for: indexPath),
-           let url = URL(string: item.image),
-            let selectedCategory {
-            for i in 0..<imageDict[selectedCategory, default: []].count {
-                imageDict[selectedCategory, default: []][i].isSelected = item.image == imageDict[selectedCategory, default: []][i].image
-            }
+           let url = URL(string: item.image) {
             selectButton.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 1)
             selectButton.isEnabled = true
             thumbnailImageView.kf.setImage(with: url)
