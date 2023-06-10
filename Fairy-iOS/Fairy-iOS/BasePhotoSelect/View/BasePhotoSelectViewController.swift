@@ -76,6 +76,7 @@ final class BasePhotoSelectViewConotroller: UIViewController {
         configureUI()
         registerCell()
         requestPhotoInfo()
+        addTargets()
         
     }
     
@@ -212,9 +213,19 @@ final class BasePhotoSelectViewConotroller: UIViewController {
                 print(error.localizedDescription)
             }
         }
-        
-        
-        
+    }
+    
+    private func addTargets() {
+        selectButton.addTarget(self, action: #selector(selectButtonTouchUpInside), for: .touchUpInside)
+    }
+    
+    @objc
+    private func selectButtonTouchUpInside() {
+        if let selectedImageURL {
+            print("이미지 있음")
+        } else {
+            print("이미지 없음")
+        }
     }
 }
 
@@ -224,7 +235,6 @@ extension BasePhotoSelectViewConotroller: UICollectionViewDelegate {
            let item = categoryDatasource?.itemIdentifier(for: indexPath) {
             var photoSnapshot = NSDiffableDataSourceSnapshot<PhotoSection, PhotoItem>()
             photoSnapshot.appendSections([.main])
-//            print(imageDict[item, default: []])
             photoSnapshot.appendItems(imageDict[item, default: []], toSection: .main)
             selectedCategory = item
             
@@ -239,9 +249,6 @@ extension BasePhotoSelectViewConotroller: UICollectionViewDelegate {
             for i in 0..<imageDict[selectedCategory, default: []].count {
                 imageDict[selectedCategory, default: []][i].isSelected = item.image == imageDict[selectedCategory, default: []][i].image
             }
-            
-            collectionView.reloadData()
-            print(imageDict[selectedCategory, default: []])
             thumbnailImageView.kf.setImage(with: url)
             selectedImageURL = item.image
         }
