@@ -70,12 +70,13 @@ class IndicatorViewController: UIViewController {
     
     private func configureConstraint() {
         animationView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.size.equalTo(300)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-50)
+            make.size.equalTo(view.snp.width)
         }
         
         messageLabel.snp.makeConstraints { make in
-            make.top.equalTo(animationView.snp.bottom).offset(30)
+            make.top.equalTo(animationView.snp.bottom).offset(-60)
             make.height.equalTo(40)
             make.centerX.equalToSuperview()
         }

@@ -150,7 +150,7 @@ final class CreateFairyTaleViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = UIColor(hexCode: "4DAC87")
         button.layer.cornerRadius = 15
-        button.setTitle("동화 생성하기", for: .normal)
+        button.setTitle("이야기 생성하기", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
         return button
     }()
