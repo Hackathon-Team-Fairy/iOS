@@ -13,24 +13,31 @@ final class FairyListCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI properties
     
+    private let coverView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(hexCode: "EDF1D6", alpha: 1)
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    
     private let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 4
         return imageView
     }()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18)
-        label.tintColor = .black
         label.textAlignment = .center
         return label
     }()
     
     private let createDateLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 18)
-        label.tintColor = .black
+        label.font = .systemFont(ofSize: 13)
+        label.textColor = UIColor(hexCode: "828282", alpha: 1)
         label.textAlignment = .center
         return label
     }()
@@ -38,7 +45,7 @@ final class FairyListCollectionViewCell: UICollectionViewCell {
     private let labelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.clipsToBounds = true
         return stackView
     }()
     
@@ -52,9 +59,7 @@ final class FairyListCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         configureSubviews()
         configureConstraint()
-        layer.cornerRadius = 12
-        layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 1
+        
     }
     
     @available(*, unavailable)
@@ -65,7 +70,8 @@ final class FairyListCollectionViewCell: UICollectionViewCell {
     // MARK: - Helpers
     
     private func configureSubviews() {
-        [thumbnailImageView, labelStackView].forEach { addSubview($0) }
+        [coverView, labelStackView].forEach { addSubview($0) }
+        coverView.addSubview(thumbnailImageView)
         [nameLabel, createDateLabel].forEach { labelStackView.addArrangedSubview($0) }
     }
     
@@ -75,16 +81,20 @@ final class FairyListCollectionViewCell: UICollectionViewCell {
             $0.horizontalEdges.equalToSuperview()
         }
         
-        thumbnailImageView.snp.makeConstraints {
+        coverView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(labelStackView.snp.top).inset(30)
+            $0.bottom.equalTo(labelStackView.snp.top).offset(-15)
+        }
+        
+        thumbnailImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(12)
         }
     }
     
-    func configureUI(title: String) {
-        nameLabel.text = title
-        createDateLabel.text = "2023-06-10"
-        thumbnailImageView.image = UIImage(systemName: "heart.fill")
+    func configureUI(item: FairytaleListViewController.FairyListModel) {
+        nameLabel.text = item.name
+        createDateLabel.text = item.date
+        thumbnailImageView.image = item.image
     }
     
 }

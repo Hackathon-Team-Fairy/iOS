@@ -27,6 +27,7 @@
 		EEB07AD22A347588003C6AAA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EEB07AD12A347588003C6AAA /* Kingfisher */; };
 		EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD52A347C86003C6AAA /* Constant.swift */; };
 		EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD92A348637003C6AAA /* SplashViewController.swift */; };
+		EEB07ADC2A349D33003C6AAA /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ADB2A349D33003C6AAA /* UIColor+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListResponse.swift; sourceTree = "<group>"; };
 		EEB07AD52A347C86003C6AAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		EEB07AD92A348637003C6AAA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		EEB07ADB2A349D33003C6AAA /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				07A347092A345F7800DF7BA6 /* Color+.swift */,
 				07A3470B2A3460C500DF7BA6 /* Font+.swift */,
 				07A3471E2A34742700DF7BA6 /* View+.swift */,
+				EEB07ADB2A349D33003C6AAA /* UIColor+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */,
 				EEB07ABC2A3440D2003C6AAA /* NetworkService.swift in Sources */,
 				EEB07AC02A34432D003C6AAA /* Resource.swift in Sources */,
+				EEB07ADC2A349D33003C6AAA /* UIColor+.swift in Sources */,
 				57134F782A34526500ED4C2D /* CreatingFairyTaleViewController.swift in Sources */,
 				EEB07ACE2A345F2C003C6AAA /* FairyListResponse.swift in Sources */,
 				07A3471D2A3473E700DF7BA6 /* EditStoryView.swift in Sources */,
