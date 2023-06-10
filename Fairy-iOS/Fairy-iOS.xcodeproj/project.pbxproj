@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07321F0D2A3455E700CDBC40 /* EditStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07321F0C2A3455E700CDBC40 /* EditStoryView.swift */; };
 		EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA22A34394D003C6AAA /* AppDelegate.swift */; };
 		EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */; };
 		EEB07AA72A34394D003C6AAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA62A34394D003C6AAA /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07321F0C2A3455E700CDBC40 /* EditStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStoryView.swift; sourceTree = "<group>"; };
 		EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fairy-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB07AA22A34394D003C6AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07321F092A3454D600CDBC40 /* EditView */ = {
+			isa = PBXGroup;
+			children = (
+				07321F0C2A3455E700CDBC40 /* EditStoryView.swift */,
+			);
+			path = EditView;
+			sourceTree = "<group>";
+		};
 		EEB07A962A34394D003C6AAA = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 				EEB07ABA2A3440B7003C6AAA /* Network */,
 				EEB07AB92A34404B003C6AAA /* App */,
 				EEB07AA62A34394D003C6AAA /* ViewController.swift */,
+				07321F092A3454D600CDBC40 /* EditView */,
 			);
 			path = "Fairy-iOS";
 			sourceTree = "<group>";
@@ -186,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07321F0D2A3455E700CDBC40 /* EditStoryView.swift in Sources */,
 				EEB07AA72A34394D003C6AAA /* ViewController.swift in Sources */,
 				EEB07AC42A344528003C6AAA /* NetworkError.swift in Sources */,
 				EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */,
