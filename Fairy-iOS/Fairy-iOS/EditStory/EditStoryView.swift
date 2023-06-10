@@ -9,6 +9,7 @@ import SwiftUI
 import SnapKit
 
 struct EditStoryView: View {
+    var diary: [String]
     @State var title: String = ""
     
     @State var story1: String = "한 번 도전해 보고 싶어하는 유미는 맛있는 커피를 마셔보고 싶어했습니다. 여러 가게를 돌아다니며 커피를 마셔봐도 별로 맛있지 않아서 좌절을 하고 있었어요. 그러던 중 사람들이 줄서서 기다리는 커피 가게를 발견하게 되었습니다. 유미는 기대감에 흥분하며 줄을 서서 커피를 주문했습니다. 처음 마셔본 그 커피는 정말 맛있었어요. 유미는 이 경험을 토대로 자신이 원하는 것을 끝까지 포기하지 않는 대인생을 살기로 결심했습니다."
@@ -39,7 +40,17 @@ struct EditStoryView: View {
         .onTapGesture {
             self.endTextEditing()
         }
+        .onAppear{
+            setStory()
+        }
         
+    }
+    
+    private func setStory(){
+        self.story1 = diary[0]
+        self.story2 = diary[1]
+        self.story3 = diary[2]
+        self.story4 = diary[3]
     }
     
     
@@ -200,7 +211,7 @@ struct EditTextView: View {
 
 struct EditStoryView_Previews: PreviewProvider {
     static var previews: some View {
-        EditStoryView()
+        EditStoryView(diary: ["무" ,"야" ,"호", "호"])
     }
 }
 
