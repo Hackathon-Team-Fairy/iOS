@@ -60,6 +60,7 @@ final class FairyListCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         configureSubviews()
         configureConstraint()
+        layer.applySketchShadow(color: .black, alpha: 0.15, x: 0, y: 4, blur: 15, spread: 0)
         
     }
     
@@ -101,4 +102,26 @@ final class FairyListCollectionViewCell: UICollectionViewCell {
         }
     }
     
+}
+extension CALayer {
+    func applySketchShadow(
+        color: UIColor,
+        alpha: Float,
+        x: CGFloat,
+        y: CGFloat,
+        blur: CGFloat,
+        spread: CGFloat
+    ) {
+        masksToBounds = false
+        shadowColor = color.cgColor
+        shadowOpacity = alpha
+        shadowOffset = CGSize(width: x, height: y)
+        shadowRadius = blur / UIScreen.main.scale
+        if spread == 0 {
+            shadowPath = nil
+        } else {
+            let rect = bounds.insetBy(dx: -spread, dy: -spread)
+            shadowPath = UIBezierPath(rect: rect).cgPath
+        }
+    }
 }
