@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PhotoSelectView: View {
     @ObservedObject var fms = FairyMakingSource.shared
@@ -25,10 +26,10 @@ struct PhotoSelectView: View {
                     .padding(.top, 33)
                     .padding(.bottom, 34)
                 
-                PhotoThumbNailView(title: fms.title, image: $fms.image)
+                PhotoThumbNailView()
                     .padding(.bottom, 27)
                 
-                PhotoControlButton(image: $fms.image, showImagePicker: $showImagePicker)
+                PhotoControlButton(image: $fms.image, showImagePicker: $showImagePicker, showMandos: $showMandos)
                 
                 Spacer()
             }
@@ -38,7 +39,7 @@ struct PhotoSelectView: View {
                 }
             }
             .sheet(isPresented: $showMandos) {
-                
+                BasePhotoSelectViewControllerWrapper()
             }
         }
         
@@ -61,9 +62,7 @@ struct PhotoSelectTipView: View {
 }
 
 struct PhotoThumbNailView: View{
-    
-    var title: String
-    @Binding var image: UIImage?
+    @ObservedObject var fms = FairyMakingSource.shared
     
     var body: some View {
         ZStack{
@@ -75,7 +74,7 @@ struct PhotoThumbNailView: View{
             VStack(spacing: 0){
                 
                 //이미지 선택 영역
-                Text(title)
+                Text(fms.title)
                     .padding(.top, 25)
                     .font(.system(size: 22, weight: .bold))
                     .foregroundColor(.black)
@@ -87,12 +86,22 @@ struct PhotoThumbNailView: View{
                         .frame(width: 180, height: 255)
                         .foregroundColor(Color(hex: "428F71", opacity: 0.15))
                     
-                    if let image = image{
+                    if let image = fms.image{
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFill()
                             .frame(width: 174, height: 249)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
+                    }else if let imageURL = fms.imageURL{
+                        
+                        KFImage(URL(string: imageURL))
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 174, height: 249)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                        
+                        
+                        
                     }else{
                         RoundedRectangle(cornerRadius: 15)
                             .foregroundColor(Color(hex: "f1f3e5"))
@@ -119,6 +128,7 @@ struct PhotoThumbNailView: View{
 struct PhotoControlButton: View{
     @Binding var image: UIImage?
     @Binding var showImagePicker: Bool
+    @Binding var showMandos: Bool
     
     var body: some View{
         
@@ -161,7 +171,7 @@ struct PhotoControlButton: View{
                 }
                 .frame(width: 190, height: 46)
                 .onTapGesture {
-                    
+                    showMandos = true
                 }
             }
             
