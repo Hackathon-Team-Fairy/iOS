@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57134F782A34526500ED4C2D /* CreatingFairyTaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */; };
 		EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA22A34394D003C6AAA /* AppDelegate.swift */; };
 		EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */; };
 		EEB07AA72A34394D003C6AAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA62A34394D003C6AAA /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingFairyTaleViewController.swift; sourceTree = "<group>"; };
 		EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fairy-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB07AA22A34394D003C6AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57134F7A2A3452BC00ED4C2D /* CreatingFairyTale */ = {
+			isa = PBXGroup;
+			children = (
+				57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */,
+			);
+			path = CreatingFairyTale;
+			sourceTree = "<group>";
+		};
 		EEB07A962A34394D003C6AAA = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 				EEB07ABA2A3440B7003C6AAA /* Network */,
 				EEB07AB92A34404B003C6AAA /* App */,
 				EEB07AA62A34394D003C6AAA /* ViewController.swift */,
+				57134F7A2A3452BC00ED4C2D /* CreatingFairyTale */,
 			);
 			path = "Fairy-iOS";
 			sourceTree = "<group>";
@@ -191,6 +202,7 @@
 				EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */,
 				EEB07ABC2A3440D2003C6AAA /* NetworkService.swift in Sources */,
 				EEB07AC02A34432D003C6AAA /* Resource.swift in Sources */,
+				57134F782A34526500ED4C2D /* CreatingFairyTaleViewController.swift in Sources */,
 				EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */,
 				EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */,
 			);
