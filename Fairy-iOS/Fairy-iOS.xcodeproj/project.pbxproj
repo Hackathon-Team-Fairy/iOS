@@ -33,6 +33,7 @@
 		EEB07AD22A347588003C6AAA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EEB07AD12A347588003C6AAA /* Kingfisher */; };
 		EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD52A347C86003C6AAA /* Constant.swift */; };
 		EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD92A348637003C6AAA /* SplashViewController.swift */; };
+		EEB07ADE2A34B275003C6AAA /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ADD2A34B275003C6AAA /* TempViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListResponse.swift; sourceTree = "<group>"; };
 		EEB07AD52A347C86003C6AAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		EEB07AD92A348637003C6AAA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		EEB07ADD2A34B275003C6AAA /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				EEB07AC92A34561A003C6AAA /* Cell */,
 				EEB07AC62A345234003C6AAA /* FairytaleListViewController.swift */,
+				EEB07ADD2A34B275003C6AAA /* TempViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB07ADE2A34B275003C6AAA /* TempViewController.swift in Sources */,
 				EEB07AC72A345234003C6AAA /* FairytaleListViewController.swift in Sources */,
 				07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */,
 				EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */,
