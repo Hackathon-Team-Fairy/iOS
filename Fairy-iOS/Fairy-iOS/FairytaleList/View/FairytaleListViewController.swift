@@ -24,7 +24,7 @@ final class FairytaleListViewController: UIViewController {
     
     private let createButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .gray
+        button.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 1)
         button.layer.cornerRadius = 15
         button.setTitle("동화 생성하기", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
@@ -74,12 +74,23 @@ final class FairytaleListViewController: UIViewController {
         registerCell()
         requestFairytaleList()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationItem.largeTitleDisplayMode = .always
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        navigationItem.largeTitleDisplayMode = .never
+    }
 
     // MARK: - Helpers
     
     private func configureUI() {
         configureSubviews()
         configureConstraint()
+        configureNavigation()
         configureDatasource()
         addTargets()
     }
@@ -99,7 +110,7 @@ final class FairytaleListViewController: UIViewController {
         collectionView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(createButton.snp.top).offset(-30)
+            $0.bottom.equalTo(createButton.snp.top).offset(-15)
         }
         
         emptyView.snp.makeConstraints {
@@ -117,6 +128,13 @@ final class FairytaleListViewController: UIViewController {
         }
         // TODO: 동화 없을 때, 로직 변경
         emptyView.isHidden = true
+    }
+    
+    private func configureNavigation() {
+        navigationItem.title = "도서 목록"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .automatic
+        
     }
     
     private func registerCell() {
@@ -137,6 +155,7 @@ final class FairytaleListViewController: UIViewController {
         item.contentInsets = .init(top: 10, leading: 10, bottom: 10, trailing: 10)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                heightDimension: .fractionalHeight(1/2))
+        
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
@@ -149,7 +168,7 @@ final class FairytaleListViewController: UIViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FairyListCollectionViewCell.identifier, for: indexPath) as? FairyListCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.configureUI(title: item)
+            cell.configureUI(item: item)
             return cell
         })
     }
@@ -158,10 +177,7 @@ final class FairytaleListViewController: UIViewController {
     private func requestFairytaleList() {
         var snapShot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapShot.appendSections([.main])
-        snapShot.appendItems(["책 이름 입니다1"], toSection: .main)
-        snapShot.appendItems(["책 이름 입니다2"], toSection: .main)
-        snapShot.appendItems(["책 이름 입니다3"], toSection: .main)
-        snapShot.appendItems(["책 이름 입니다4"], toSection: .main)
+        snapShot.appendItems(FairyListModel.list)
         
         datasource?.apply(snapShot)
     }
@@ -194,5 +210,46 @@ extension FairytaleListViewController {
         case main
     }
     
-    typealias Item = String
+    // MARK: 임시 데이터
+    struct FairyListModel: Hashable {
+        let image: UIImage?
+        let name: String
+        let date: String
+        
+        static let list: [FairyListModel] = [
+            FairyListModel(
+                image: UIImage(named: "temp1"),
+                name: "책 이름 1",
+                date: "2020.06.10"
+            ),
+            FairyListModel(
+                image: UIImage(named: "temp2"),
+                name: "책 이름 2",
+                date: "2020.06.11"
+            ),
+            FairyListModel(
+                image: UIImage(named: "temp3"),
+                name: "책 이름 3",
+                date: "2020.06.12"
+            ),
+            FairyListModel(
+                image: UIImage(named: "temp4"),
+                name: "책 이름 4",
+                date: "2020.06.13"
+            ),
+            FairyListModel(
+                image: UIImage(named: "temp3"),
+                name: "책 이름 5",
+                date: "2020.06.12"
+            ),
+            FairyListModel(
+                image: UIImage(named: "temp4"),
+                name: "책 이름 6",
+                date: "2020.06.13"
+            )
+        ]
+    }
+    
+    typealias Item = FairyListModel
 }
+
