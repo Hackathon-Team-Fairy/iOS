@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PhotoSelectView: View {
+    @ObservedObject var fms = FairyMakingSource.shared
+    
     var title: String = "나의 작가 탐험기"
     @State var image: UIImage?
     @State var showImagePicker: Bool = false
@@ -22,7 +24,7 @@ struct PhotoSelectView: View {
                     .padding(.top, 33)
                     .padding(.bottom, 34)
                 
-                PhotoThumbNailView(title: self.title, image: $image)
+                PhotoThumbNailView(title: fms.title, image: $image)
                     .padding(.bottom, 27)
                 
                 PhotoControlButton(image: $image, showImagePicker: $showImagePicker)

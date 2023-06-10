@@ -13,6 +13,7 @@
 		074814F12A34ABA200DF6A85 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074814F02A34ABA200DF6A85 /* ImagePicker.swift */; };
 		074814F62A34F79500DF6A85 /* ReadingStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074814F52A34F79500DF6A85 /* ReadingStoryView.swift */; };
 		074814F82A34FE5300DF6A85 /* ReadingStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074814F72A34FE5300DF6A85 /* ReadingStoryViewController.swift */; };
+		074814FA2A35090F00DF6A85 /* FairyMakingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074814F92A35090F00DF6A85 /* FairyMakingSource.swift */; };
 		07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A347092A345F7800DF7BA6 /* Color+.swift */; };
 		07A3470C2A3460C500DF7BA6 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3470B2A3460C500DF7BA6 /* Font+.swift */; };
 		07A3471D2A3473E700DF7BA6 /* EditStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3471C2A3473E700DF7BA6 /* EditStoryView.swift */; };
@@ -55,6 +56,7 @@
 		074814F02A34ABA200DF6A85 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		074814F52A34F79500DF6A85 /* ReadingStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingStoryView.swift; sourceTree = "<group>"; };
 		074814F72A34FE5300DF6A85 /* ReadingStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingStoryViewController.swift; sourceTree = "<group>"; };
+		074814F92A35090F00DF6A85 /* FairyMakingSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyMakingSource.swift; sourceTree = "<group>"; };
 		07A347092A345F7800DF7BA6 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		07A3470B2A3460C500DF7BA6 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		07A3471C2A3473E700DF7BA6 /* EditStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditStoryView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		07A3471B2A3472A200DF7BA6 /* EditStory */ = {
 			isa = PBXGroup;
 			children = (
+				074814F92A35090F00DF6A85 /* FairyMakingSource.swift */,
 				07A3471C2A3473E700DF7BA6 /* EditStoryView.swift */,
 				074814EC2A349EA900DF6A85 /* EditStoryViewController.swift */,
 			);
@@ -462,6 +465,7 @@
 				57134F8A2A34FB1700ED4C2D /* QnAList.swift in Sources */,
 				074814ED2A349EA900DF6A85 /* EditStoryViewController.swift in Sources */,
 				07A3471F2A34742700DF7BA6 /* View+.swift in Sources */,
+				074814FA2A35090F00DF6A85 /* FairyMakingSource.swift in Sources */,
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
 				074814F62A34F79500DF6A85 /* ReadingStoryView.swift in Sources */,
 				EECAE98E2A350D1E00FC0AEB /* BasePhotoImageCell.swift in Sources */,
