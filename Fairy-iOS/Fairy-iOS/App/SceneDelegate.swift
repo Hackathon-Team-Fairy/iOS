@@ -16,7 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = CreatingFairyTaleViewController()
+        let navigaionViewController = UINavigationController(rootViewController: FairytaleListViewController())
+        window.rootViewController = navigaionViewController
         window.makeKeyAndVisible()
         self.window = window
     }

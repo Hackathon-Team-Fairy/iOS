@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		57134F782A34526500ED4C2D /* CreatingFairyTaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */; };
+		07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A347092A345F7800DF7BA6 /* Color+.swift */; };
+		07A3470C2A3460C500DF7BA6 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3470B2A3460C500DF7BA6 /* Font+.swift */; };
 		EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA22A34394D003C6AAA /* AppDelegate.swift */; };
 		EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */; };
 		EEB07AA72A34394D003C6AAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA62A34394D003C6AAA /* ViewController.swift */; };
@@ -18,10 +20,15 @@
 		EEB07AC02A34432D003C6AAA /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ABF2A34432D003C6AAA /* Resource.swift */; };
 		EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AC12A344379003C6AAA /* HttpMethod.swift */; };
 		EEB07AC42A344528003C6AAA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AC32A344528003C6AAA /* NetworkError.swift */; };
+		EEB07AC72A345234003C6AAA /* FairytaleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AC62A345234003C6AAA /* FairytaleListViewController.swift */; };
+		EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */; };
+		EEB07ACE2A345F2C003C6AAA /* FairyListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingFairyTaleViewController.swift; sourceTree = "<group>"; };
+		07A347092A345F7800DF7BA6 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		07A3470B2A3460C500DF7BA6 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fairy-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB07AA22A34394D003C6AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +40,9 @@
 		EEB07ABF2A34432D003C6AAA /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		EEB07AC12A344379003C6AAA /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		EEB07AC32A344528003C6AAA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		EEB07AC62A345234003C6AAA /* FairytaleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairytaleListViewController.swift; sourceTree = "<group>"; };
+		EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListCollectionViewCell.swift; sourceTree = "<group>"; };
+		EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,7 @@
 				EEB07AB92A34404B003C6AAA /* App */,
 				EEB07AA62A34394D003C6AAA /* ViewController.swift */,
 				57134F7A2A3452BC00ED4C2D /* CreatingFairyTale */,
+				EEB07AC52A3451AD003C6AAA /* FairytaleList */,
 			);
 			path = "Fairy-iOS";
 			sourceTree = "<group>";
@@ -117,8 +128,44 @@
 			children = (
 				EEB07ABF2A34432D003C6AAA /* Resource.swift */,
 				EEB07AC12A344379003C6AAA /* HttpMethod.swift */,
+				07A347092A345F7800DF7BA6 /* Color+.swift */,
+				07A3470B2A3460C500DF7BA6 /* Font+.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		EEB07AC52A3451AD003C6AAA /* FairytaleList */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07ACC2A345F07003C6AAA /* Model */,
+				EEB07AC82A345278003C6AAA /* View */,
+			);
+			path = FairytaleList;
+			sourceTree = "<group>";
+		};
+		EEB07AC82A345278003C6AAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07AC92A34561A003C6AAA /* Cell */,
+				EEB07AC62A345234003C6AAA /* FairytaleListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EEB07AC92A34561A003C6AAA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EEB07ACC2A345F07003C6AAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,14 +244,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB07AC72A345234003C6AAA /* FairytaleListViewController.swift in Sources */,
 				EEB07AA72A34394D003C6AAA /* ViewController.swift in Sources */,
+				07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */,
 				EEB07AC42A344528003C6AAA /* NetworkError.swift in Sources */,
+				07A3470C2A3460C500DF7BA6 /* Font+.swift in Sources */,
 				EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */,
 				EEB07ABC2A3440D2003C6AAA /* NetworkService.swift in Sources */,
 				EEB07AC02A34432D003C6AAA /* Resource.swift in Sources */,
 				57134F782A34526500ED4C2D /* CreatingFairyTaleViewController.swift in Sources */,
+				EEB07ACE2A345F2C003C6AAA /* FairyListResponse.swift in Sources */,
 				EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */,
 				EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */,
+				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
