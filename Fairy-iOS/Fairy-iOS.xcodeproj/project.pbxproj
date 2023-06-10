@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A347092A345F7800DF7BA6 /* Color+.swift */; };
+		07A3470C2A3460C500DF7BA6 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3470B2A3460C500DF7BA6 /* Font+.swift */; };
 		EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA22A34394D003C6AAA /* AppDelegate.swift */; };
 		EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */; };
 		EEB07AA72A34394D003C6AAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA62A34394D003C6AAA /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07A347092A345F7800DF7BA6 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		07A3470B2A3460C500DF7BA6 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fairy-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB07AA22A34394D003C6AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 			children = (
 				EEB07ABF2A34432D003C6AAA /* Resource.swift */,
 				EEB07AC12A344379003C6AAA /* HttpMethod.swift */,
+				07A347092A345F7800DF7BA6 /* Color+.swift */,
+				07A3470B2A3460C500DF7BA6 /* Font+.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -187,7 +193,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB07AA72A34394D003C6AAA /* ViewController.swift in Sources */,
+				07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */,
 				EEB07AC42A344528003C6AAA /* NetworkError.swift in Sources */,
+				07A3470C2A3460C500DF7BA6 /* Font+.swift in Sources */,
 				EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */,
 				EEB07ABC2A3440D2003C6AAA /* NetworkService.swift in Sources */,
 				EEB07AC02A34432D003C6AAA /* Resource.swift in Sources */,
