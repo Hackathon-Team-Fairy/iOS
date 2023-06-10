@@ -25,6 +25,7 @@ struct EditStoryView: View {
             ScrollView{
                 VStack(spacing: 0){
                     EditTipView()
+                        .padding(.top, 25)
                         .padding(.bottom, 38)
                     
                     EditBookView(name: $title, story1: $story1, story2: $story2, story3: $story3, story4: $story4)
