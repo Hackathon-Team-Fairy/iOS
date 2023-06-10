@@ -17,7 +17,7 @@ class ReadingStoryViewController: UIViewController {
         view.backgroundColor = UIColor(hexCode: "F3F4EC")
         
         // SwiftUI 화면을 UIKit에 통합
-        let contentView = ReadingStoryView()
+        let contentView = ReadingStoryView(title: "여기에요", imageURL: "", story1: "ㅋㅋ", story2: "하하", story3: "허허", story4: "쿠ㅠ큐")
         let hostingController = UIHostingController(rootView: contentView)
         addChild(hostingController)
         view.addSubview(hostingController.view)
