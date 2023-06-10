@@ -23,6 +23,11 @@ struct Resource<T: Decodable> {
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if method == .POST,  let jsonData = try? JSONEncoder().encode(paramaters) {
+            request.httpBody = jsonData
+        }
         
         header.forEach { key, value in
             request.addValue(value, forHTTPHeaderField: key)
@@ -31,4 +36,3 @@ struct Resource<T: Decodable> {
         return request
     }
 }
-
