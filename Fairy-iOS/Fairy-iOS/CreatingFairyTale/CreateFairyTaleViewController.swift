@@ -68,7 +68,7 @@ final class CreateFairyTaleViewController: UIViewController {
         let textView = UITextView()
         textView.isScrollEnabled = false
         textView.layer.borderColor = UIColor(hexCode: "4DAC87").cgColor
-        textView.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 0.1)
+        textView.backgroundColor = UIColor(hexCode: "F3F4EC")
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 20
         textView.contentInset = .init(top: 15, left: 10, bottom: 15, right: 10)
@@ -97,7 +97,7 @@ final class CreateFairyTaleViewController: UIViewController {
         let textView = UITextView()
         textView.isScrollEnabled = false
         textView.layer.borderColor = UIColor(hexCode: "4DAC87").cgColor
-        textView.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 0.1)
+        textView.backgroundColor = UIColor(hexCode: "F3F4EC")
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 20
         textView.contentInset = .init(top: 15, left: 10, bottom: 15, right: 10)
@@ -126,7 +126,7 @@ final class CreateFairyTaleViewController: UIViewController {
         let textView = UITextView()
         textView.isScrollEnabled = false
         textView.layer.borderColor = UIColor(hexCode: "4DAC87").cgColor
-        textView.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 0.1)
+        textView.backgroundColor = UIColor(hexCode: "F3F4EC")
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 20
         textView.contentInset = .init(top: 15, left: 10, bottom: 15, right: 10)
@@ -165,6 +165,11 @@ final class CreateFairyTaleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(hexCode: "F3F4EC")
+        
+        firstAnswerTextView.delegate = self
+        secondAnswerTextView.delegate = self
+        thirdAnswerTextView.delegate = self
+        
         configureSubviews()
         configureConstraint()
         addTargets()
@@ -285,19 +290,40 @@ extension CreateFairyTaleViewController {
         // 키보드가 생성될 때
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            bottomView.snp.updateConstraints {
-                $0.height.equalTo(keyboardHeight)
+            
+            UIView.animate(withDuration: 0.5) {
+                self.bottomView.snp.updateConstraints {
+                    $0.height.equalTo(keyboardHeight - 35)
+                }
+                self.view.layoutIfNeeded()
             }
+            
         }
     }
     
     @objc private func keyboardWillHide(_ notification: Notification) {
-        bottomView.snp.updateConstraints {
-            $0.height.equalTo(0)
+        UIView.animate(withDuration: 0.5) {
+            self.bottomView.snp.updateConstraints {
+                $0.height.equalTo(0)
+            }
+            self.view.layoutIfNeeded()
         }
+        
     }
     
     @objc private func scrollViewTapped() {
         view.endEditing(true)
+    }
+}
+
+
+extension CreateFairyTaleViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.backgroundColor = UIColor(hexCode: "F3F4EC")
+        } else {
+            textView.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 0.1)
+        }
     }
 }
