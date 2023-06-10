@@ -18,6 +18,8 @@
 		57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */; };
 		57134F7E2A3497A500ED4C2D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F7D2A3497A500ED4C2D /* UIColor+.swift */; };
 		57134F812A34CEC200ED4C2D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 57134F802A34CEC200ED4C2D /* Lottie */; };
+		57134F842A34D15000ED4C2D /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F832A34D15000ED4C2D /* IndicatorViewController.swift */; };
+		57134F872A34D24A00ED4C2D /* book.json in Resources */ = {isa = PBXBuildFile; fileRef = 57134F862A34D24A00ED4C2D /* book.json */; };
 		EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA22A34394D003C6AAA /* AppDelegate.swift */; };
 		EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */; };
 		EEB07AAC2A343950003C6AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB07AAB2A343950003C6AAA /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 		EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD52A347C86003C6AAA /* Constant.swift */; };
 		EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD92A348637003C6AAA /* SplashViewController.swift */; };
 		EEB07ADE2A34B275003C6AAA /* CreateFairyTaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ADD2A34B275003C6AAA /* CreateFairyTaleViewController.swift */; };
+		EECAE97E2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE97C2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift */; };
+		EECAE97F2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE97D2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,8 @@
 		07A3471E2A34742700DF7BA6 /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegenerateAlertViewController.swift; sourceTree = "<group>"; };
 		57134F7D2A3497A500ED4C2D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		57134F832A34D15000ED4C2D /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
+		57134F862A34D24A00ED4C2D /* book.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = book.json; sourceTree = "<group>"; };
 		EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fairy-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB07AA22A34394D003C6AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,8 @@
 		EEB07AD52A347C86003C6AAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		EEB07AD92A348637003C6AAA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		EEB07ADD2A34B275003C6AAA /* CreateFairyTaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFairyTaleViewController.swift; sourceTree = "<group>"; };
+		EECAE97C2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePhotoCategoryCell.swift; sourceTree = "<group>"; };
+		EECAE97D2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePhotoSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,22 @@
 			path = CreatingFairyTale;
 			sourceTree = "<group>";
 		};
+		57134F822A34D12E00ED4C2D /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				57134F832A34D15000ED4C2D /* IndicatorViewController.swift */,
+			);
+			path = Indicator;
+			sourceTree = "<group>";
+		};
+		57134F852A34D23900ED4C2D /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				57134F862A34D24A00ED4C2D /* book.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		EEB07A962A34394D003C6AAA = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +150,7 @@
 		EEB07AA12A34394D003C6AAA /* Fairy-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EECAE9792A34DB9600FC0AEB /* BasePhotoSelect */,
 				EEB07ABD2A34431F003C6AAA /* Utils */,
 				EEB07ABA2A3440B7003C6AAA /* Network */,
 				EEB07AB92A34404B003C6AAA /* App */,
@@ -133,6 +158,7 @@
 				074814E92A349E1B00DF6A85 /* PhotoSelect */,
 				57134F7A2A3452BC00ED4C2D /* CreatingFairyTale */,
 				EEB07AC52A3451AD003C6AAA /* FairytaleList */,
+				57134F822A34D12E00ED4C2D /* Indicator */,
 				EEB07AD72A3485C7003C6AAA /* Splash */,
 			);
 			path = "Fairy-iOS";
@@ -172,6 +198,7 @@
 		EEB07ABE2A344324003C6AAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				57134F852A34D23900ED4C2D /* Lottie */,
 				EEB07ABF2A34432D003C6AAA /* Resource.swift */,
 				EEB07AC12A344379003C6AAA /* HttpMethod.swift */,
 			);
@@ -247,6 +274,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		EECAE9792A34DB9600FC0AEB /* BasePhotoSelect */ = {
+			isa = PBXGroup;
+			children = (
+				EECAE97A2A34DB9600FC0AEB /* View */,
+			);
+			path = BasePhotoSelect;
+			sourceTree = "<group>";
+		};
+		EECAE97A2A34DB9600FC0AEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EECAE97B2A34DB9600FC0AEB /* Cell */,
+				EECAE97D2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EECAE97B2A34DB9600FC0AEB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EECAE97C2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -315,6 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57134F872A34D24A00ED4C2D /* book.json in Resources */,
 				EEB07AAF2A343950003C6AAA /* LaunchScreen.storyboard in Resources */,
 				EEB07AAC2A343950003C6AAA /* Assets.xcassets in Resources */,
 			);
@@ -328,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB07ADE2A34B275003C6AAA /* CreateFairyTaleViewController.swift in Sources */,
+				EECAE97E2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift in Sources */,
 				EEB07AC72A345234003C6AAA /* FairytaleListViewController.swift in Sources */,
 				07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */,
 				EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */,
@@ -335,6 +389,7 @@
 				07A3470C2A3460C500DF7BA6 /* Font+.swift in Sources */,
 				074814EF2A349ED500DF6A85 /* PhotoSelectViewController.swift in Sources */,
 				074814EB2A349E4800DF6A85 /* PhotoSelectView.swift in Sources */,
+				57134F842A34D15000ED4C2D /* IndicatorViewController.swift in Sources */,
 				074814F12A34ABA200DF6A85 /* ImagePicker.swift in Sources */,
 				EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */,
 				EEB07ABC2A3440D2003C6AAA /* NetworkService.swift in Sources */,
@@ -347,6 +402,7 @@
 				07A3471F2A34742700DF7BA6 /* View+.swift in Sources */,
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
 				57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */,
+				EECAE97F2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift in Sources */,
 				EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */,
 				57134F7E2A3497A500ED4C2D /* UIColor+.swift in Sources */,
 			);
