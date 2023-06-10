@@ -25,6 +25,7 @@
 		EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */; };
 		EEB07ACE2A345F2C003C6AAA /* FairyListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */; };
 		EEB07AD22A347588003C6AAA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EEB07AD12A347588003C6AAA /* Kingfisher */; };
+		EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD52A347C86003C6AAA /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		EEB07AC62A345234003C6AAA /* FairytaleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairytaleListViewController.swift; sourceTree = "<group>"; };
 		EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListCollectionViewCell.swift; sourceTree = "<group>"; };
 		EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListResponse.swift; sourceTree = "<group>"; };
+		EEB07AD52A347C86003C6AAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		EEB07ABD2A34431F003C6AAA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EEB07AD42A347C4F003C6AAA /* Constant */,
 				EEB07AD32A3475BA003C6AAA /* Extension */,
 				EEB07ABE2A344324003C6AAA /* Resource */,
 			);
@@ -187,6 +190,14 @@
 				07A3471E2A34742700DF7BA6 /* View+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		EEB07AD42A347C4F003C6AAA /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07AD52A347C86003C6AAA /* Constant.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +280,7 @@
 			files = (
 				EEB07AC72A345234003C6AAA /* FairytaleListViewController.swift in Sources */,
 				07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */,
+				EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */,
 				EEB07AC42A344528003C6AAA /* NetworkError.swift in Sources */,
 				07A3470C2A3460C500DF7BA6 /* Font+.swift in Sources */,
 				EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */,
