@@ -18,6 +18,7 @@ final class FairytaleListViewController: UIViewController {
             frame: .zero,
             collectionViewLayout: createCollectionViewLayout())
         collectionView.backgroundColor = .white
+        collectionView.delegate = self
         return collectionView
     }()
     
@@ -114,6 +115,19 @@ final class FairytaleListViewController: UIViewController {
         datasource?.apply(snapShot)
     }
 }
+
+// MARK: UICollectionView Delegate
+
+extension FairytaleListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = datasource?.itemIdentifier(for: indexPath) else { return }
+        // TODO: 화면 이동
+        
+    }
+}
+
+
+// MARK: Enums
 
 extension FairytaleListViewController {
     enum Section {
