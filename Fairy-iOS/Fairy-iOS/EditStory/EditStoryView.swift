@@ -43,10 +43,31 @@ struct EditStoryView: View {
     }
     
     private func setStory(){
-        self.fms.story1 = diary[0]
-        self.fms.story2 = diary[1]
-        self.fms.story3 = diary[2]
-        self.fms.story4 = diary[3]
+        
+        if diary.indices.contains(0) {
+            self.fms.story1 = diary[0]
+        } else {
+            self.fms.story1 = "어느어느날의 이야기에요"
+        }
+
+        if diary.indices.contains(1) {
+            self.fms.story2 = diary[1]
+        } else {
+            self.fms.story2 = "행복하게 살았어요"
+        }
+
+        if diary.indices.contains(2) {
+            self.fms.story3 = diary[2]
+        } else {
+            self.fms.story3 = "행복하게 살았어요"
+        }
+
+        if diary.indices.contains(3) {
+            self.fms.story4 = diary[3]
+        } else {
+            self.fms.story4 = "행복하게 살았어요"
+        }
+        
     }
     
     
