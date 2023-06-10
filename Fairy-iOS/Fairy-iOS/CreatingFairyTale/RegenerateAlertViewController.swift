@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RegenerateAlertViewController: UIViewController {
+final class RegenerateAlertViewController: UIViewController {
     
     // MARK: - UI Property
     private let alertView: UIView = {

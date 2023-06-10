@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class TempViewController: UIViewController {
+final class CreateFairyTaleViewController: UIViewController {
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -274,7 +274,7 @@ final class TempViewController: UIViewController {
 
 // MARK: Keyboard Noti
 
-extension TempViewController {
+extension CreateFairyTaleViewController {
     @objc private func keyboardWillShow(_ notification: Notification) {
         // 키보드가 생성될 때
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {

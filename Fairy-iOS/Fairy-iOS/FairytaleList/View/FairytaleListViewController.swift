@@ -186,7 +186,7 @@ final class FairytaleListViewController: UIViewController {
     
     @objc
     private func createButtonTouchUpInside() {
-        let creatingFairyTaleViewController = TempViewController()
+        let creatingFairyTaleViewController = CreateFairyTaleViewController()
         navigationController?.pushViewController(creatingFairyTaleViewController, animated: true)
     }
 }
