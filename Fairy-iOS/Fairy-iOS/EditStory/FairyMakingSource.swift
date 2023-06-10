@@ -17,4 +17,6 @@ class FairyMakingSource: ObservableObject{
     @Published var story4: String = "결국 유미는 오늘 하루 일어난 일들로 인해, 이동동화에서 배운 대인관계, 도전 정신 등의 교훈들을 가장 잘 체득한 캐릭터가 되었습니다. 유미는 더 열심히 살아가며 멋진 인생을 살고, 이동동화에서 주어진 교훈들이 미치는 의미를 그대로 활용해서 살아갈 것입니다"
     
     @Published var image: UIImage?
+    @Published var imageURL: String?
+
 }
