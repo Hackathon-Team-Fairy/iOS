@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		074814EB2A349E4800DF6A85 /* PhotoSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074814EA2A349E4800DF6A85 /* PhotoSelectView.swift */; };
+		074814ED2A349EA900DF6A85 /* EditStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074814EC2A349EA900DF6A85 /* EditStoryViewController.swift */; };
+		074814EF2A349ED500DF6A85 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074814EE2A349ED500DF6A85 /* PhotoSelectViewController.swift */; };
 		07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A347092A345F7800DF7BA6 /* Color+.swift */; };
 		07A3470C2A3460C500DF7BA6 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3470B2A3460C500DF7BA6 /* Font+.swift */; };
 		07A3471D2A3473E700DF7BA6 /* EditStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3471C2A3473E700DF7BA6 /* EditStoryView.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		074814EA2A349E4800DF6A85 /* PhotoSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectView.swift; sourceTree = "<group>"; };
+		074814EC2A349EA900DF6A85 /* EditStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStoryViewController.swift; sourceTree = "<group>"; };
+		074814EE2A349ED500DF6A85 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
 		07A347092A345F7800DF7BA6 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		07A3470B2A3460C500DF7BA6 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		07A3471C2A3473E700DF7BA6 /* EditStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditStoryView.swift; sourceTree = "<group>"; };
@@ -69,10 +75,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		074814E92A349E1B00DF6A85 /* PhotoSelect */ = {
+			isa = PBXGroup;
+			children = (
+				074814EA2A349E4800DF6A85 /* PhotoSelectView.swift */,
+				074814EE2A349ED500DF6A85 /* PhotoSelectViewController.swift */,
+			);
+			path = PhotoSelect;
+			sourceTree = "<group>";
+		};
 		07A3471B2A3472A200DF7BA6 /* EditStory */ = {
 			isa = PBXGroup;
 			children = (
 				07A3471C2A3473E700DF7BA6 /* EditStoryView.swift */,
+				074814EC2A349EA900DF6A85 /* EditStoryViewController.swift */,
 			);
 			path = EditStory;
 			sourceTree = "<group>";
@@ -109,6 +125,7 @@
 				EEB07ABA2A3440B7003C6AAA /* Network */,
 				EEB07AB92A34404B003C6AAA /* App */,
 				07A3471B2A3472A200DF7BA6 /* EditStory */,
+				074814E92A349E1B00DF6A85 /* PhotoSelect */,
 				57134F7A2A3452BC00ED4C2D /* CreatingFairyTale */,
 				EEB07AC52A3451AD003C6AAA /* FairytaleList */,
 				EEB07AD72A3485C7003C6AAA /* Splash */,
@@ -308,6 +325,8 @@
 				EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */,
 				EEB07AC42A344528003C6AAA /* NetworkError.swift in Sources */,
 				07A3470C2A3460C500DF7BA6 /* Font+.swift in Sources */,
+				074814EF2A349ED500DF6A85 /* PhotoSelectViewController.swift in Sources */,
+				074814EB2A349E4800DF6A85 /* PhotoSelectView.swift in Sources */,
 				EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */,
 				EEB07ABC2A3440D2003C6AAA /* NetworkService.swift in Sources */,
 				EEB07AC02A34432D003C6AAA /* Resource.swift in Sources */,
@@ -316,6 +335,7 @@
 				07A3471D2A3473E700DF7BA6 /* EditStoryView.swift in Sources */,
 				EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */,
 				EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */,
+				074814ED2A349EA900DF6A85 /* EditStoryViewController.swift in Sources */,
 				07A3471F2A34742700DF7BA6 /* View+.swift in Sources */,
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
 				57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */,
