@@ -11,8 +11,9 @@ struct PhotoSelectView: View {
     @ObservedObject var fms = FairyMakingSource.shared
     
     var title: String = "나의 작가 탐험기"
-    @State var image: UIImage?
     @State var showImagePicker: Bool = false
+    @State var showMandos: Bool = false
+    
     var body: some View {
         ZStack{
             Rectangle()
@@ -33,8 +34,11 @@ struct PhotoSelectView: View {
             }
             .sheet(isPresented: $showImagePicker) {
                 ImagePicker(sourceType: .photoLibrary){ image in
-                    self.image = image
+                    fms.image = image
                 }
+            }
+            .sheet(isPresented: $showMandos) {
+                
             }
         }
         
@@ -156,7 +160,9 @@ struct PhotoControlButton: View{
                         .foregroundColor(.white)
                 }
                 .frame(width: 190, height: 46)
-                
+                .onTapGesture {
+                    
+                }
             }
             
         }
