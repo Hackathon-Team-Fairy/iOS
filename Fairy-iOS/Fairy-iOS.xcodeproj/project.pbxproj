@@ -146,6 +146,7 @@
 		EEB07AA12A34394D003C6AAA /* Fairy-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EEB07AE42A34C57E003C6AAA /* BasePhotoSelect */,
 				EEB07ABD2A34431F003C6AAA /* Utils */,
 				EEB07ABA2A3440B7003C6AAA /* Network */,
 				EEB07AB92A34404B003C6AAA /* App */,
@@ -269,6 +270,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		EEB07AE42A34C57E003C6AAA /* BasePhotoSelect */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07AE52A34C585003C6AAA /* View */,
+			);
+			path = BasePhotoSelect;
+			sourceTree = "<group>";
+		};
+		EEB07AE52A34C585003C6AAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07AE82A34CDFF003C6AAA /* Cell */,
+				EEB07AE62A34C59F003C6AAA /* BasePhotoSelectViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EEB07AE82A34CDFF003C6AAA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07AE92A34CE0C003C6AAA /* BasePhotoCategoryCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -367,7 +393,9 @@
 				07A3471D2A3473E700DF7BA6 /* EditStoryView.swift in Sources */,
 				EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */,
 				EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */,
+				EEB07AEA2A34CE0C003C6AAA /* BasePhotoCategoryCell.swift in Sources */,
 				074814ED2A349EA900DF6A85 /* EditStoryViewController.swift in Sources */,
+				EEB07AE72A34C59F003C6AAA /* BasePhotoSelectViewController.swift in Sources */,
 				07A3471F2A34742700DF7BA6 /* View+.swift in Sources */,
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
 				57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */,

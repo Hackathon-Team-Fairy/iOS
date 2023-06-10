@@ -33,7 +33,7 @@ final class SplashViewController: UIViewController {
         UIView.animate(withDuration: 2.0, delay: 1.5, options: .curveEaseOut, animations: {
             self.imageView.alpha = 1
         }, completion: { _ in
-            let navigaionViewController = UINavigationController(rootViewController: FairytaleListViewController())
+            let navigaionViewController = UINavigationController(rootViewController: BasePhotoSelectViewConotroller())
             self.changeRootViewController(navigaionViewController)
         })
     }
