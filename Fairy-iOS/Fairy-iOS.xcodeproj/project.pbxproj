@@ -15,6 +15,8 @@
 		07A3471D2A3473E700DF7BA6 /* EditStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3471C2A3473E700DF7BA6 /* EditStoryView.swift */; };
 		07A3471F2A34742700DF7BA6 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3471E2A34742700DF7BA6 /* View+.swift */; };
 		57134F782A34526500ED4C2D /* CreatingFairyTaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */; };
+		57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */; };
+		57134F7E2A3497A500ED4C2D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F7D2A3497A500ED4C2D /* UIColor+.swift */; };
 		EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA22A34394D003C6AAA /* AppDelegate.swift */; };
 		EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */; };
 		EEB07AAC2A343950003C6AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB07AAB2A343950003C6AAA /* Assets.xcassets */; };
@@ -29,6 +31,7 @@
 		EEB07ACE2A345F2C003C6AAA /* FairyListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */; };
 		EEB07AD22A347588003C6AAA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EEB07AD12A347588003C6AAA /* Kingfisher */; };
 		EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD52A347C86003C6AAA /* Constant.swift */; };
+		EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD92A348637003C6AAA /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,8 @@
 		07A3471C2A3473E700DF7BA6 /* EditStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditStoryView.swift; sourceTree = "<group>"; };
 		07A3471E2A34742700DF7BA6 /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingFairyTaleViewController.swift; sourceTree = "<group>"; };
+		57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegenerateAlertViewController.swift; sourceTree = "<group>"; };
+		57134F7D2A3497A500ED4C2D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fairy-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB07AA22A34394D003C6AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 		EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListCollectionViewCell.swift; sourceTree = "<group>"; };
 		EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListResponse.swift; sourceTree = "<group>"; };
 		EEB07AD52A347C86003C6AAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		EEB07AD92A348637003C6AAA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */,
+				57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */,
 			);
 			path = CreatingFairyTale;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 				074814E92A349E1B00DF6A85 /* PhotoSelect */,
 				57134F7A2A3452BC00ED4C2D /* CreatingFairyTale */,
 				EEB07AC52A3451AD003C6AAA /* FairytaleList */,
+				EEB07AD72A3485C7003C6AAA /* Splash */,
 			);
 			path = "Fairy-iOS";
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 				07A347092A345F7800DF7BA6 /* Color+.swift */,
 				07A3470B2A3460C500DF7BA6 /* Font+.swift */,
 				07A3471E2A34742700DF7BA6 /* View+.swift */,
+				57134F7D2A3497A500ED4C2D /* UIColor+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -215,6 +224,22 @@
 				EEB07AD52A347C86003C6AAA /* Constant.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		EEB07AD72A3485C7003C6AAA /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07AD82A34862B003C6AAA /* View */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		EEB07AD82A34862B003C6AAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07AD92A348637003C6AAA /* SplashViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +338,9 @@
 				074814ED2A349EA900DF6A85 /* EditStoryViewController.swift in Sources */,
 				07A3471F2A34742700DF7BA6 /* View+.swift in Sources */,
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
+				57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */,
+				EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */,
+				57134F7E2A3497A500ED4C2D /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

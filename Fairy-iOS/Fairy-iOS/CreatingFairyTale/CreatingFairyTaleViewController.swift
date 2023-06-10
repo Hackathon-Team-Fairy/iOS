@@ -111,7 +111,7 @@ final class CreatingFairyTaleViewController: UIViewController {
         return textView
     }()
     
-    private let regenerativeButton: UIButton = {
+    private let regenerateButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .white
         button.layer.cornerRadius = 15
@@ -156,7 +156,7 @@ final class CreatingFairyTaleViewController: UIViewController {
         
         scrollView.addSubview(topView)
         scrollView.addSubview(contentView)
-        scrollView.addSubview(regenerativeButton)
+        scrollView.addSubview(regenerateButton)
         
         firstQuestionView.addSubview(firstLabel)
         firstQuestionView.addSubview(firstTextView)
@@ -251,7 +251,7 @@ final class CreatingFairyTaleViewController: UIViewController {
             make.horizontalEdges.bottom.equalToSuperview()
         }
         
-        regenerativeButton.snp.makeConstraints { make in
+        regenerateButton.snp.makeConstraints { make in
             make.top.equalTo(thirdQuestionView.snp.bottom).offset(25)
             make.horizontalEdges.equalToSuperview().inset(100)
             make.height.equalTo(40)
@@ -268,6 +268,16 @@ final class CreatingFairyTaleViewController: UIViewController {
     
     private func addTargets() {
         createButton.addTarget(self, action: #selector(createButtonTouchUpInside), for: .touchUpInside)
+        regenerateButton.addTarget(self, action: #selector(regenerateButtonTouchUpInside), for: .touchUpInside)
+    }
+    
+    @objc
+    private func regenerateButtonTouchUpInside() {
+        let regenerateAlertViewController = RegenerateAlertViewController()
+        regenerateAlertViewController.modalPresentationStyle = .overFullScreen
+        
+        self.present(regenerateAlertViewController, animated: false)
+        
     }
     
     @objc
