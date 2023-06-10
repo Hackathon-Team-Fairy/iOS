@@ -82,7 +82,7 @@ final class FairytaleListViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        navigationItem.largeTitleDisplayMode = .never
+        //navigationItem.largeTitleDisplayMode = .never
     }
 
     // MARK: - Helpers

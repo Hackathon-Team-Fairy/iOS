@@ -23,7 +23,7 @@ class EditStoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.prefersLargeTitles = false
         view.backgroundColor = UIColor(hexCode: "F3F4EC")
         
         // SwiftUI 화면을 UIKit에 통합
