@@ -9,15 +9,21 @@ import SwiftUI
 
 struct PhotoSelectView: View {
     @State var image: UIImage?
-    
+    @State var showImagePicker: Bool = false
     var body: some View {
         VStack(spacing: 0){
             PhotoSelectTipView()
             
-            PhotoSelectCardView(image: $image)
+            PhotoSelectCardView(image: $image, showImagePicker: $showImagePicker)
                 .padding(.top, 33)
             Spacer()
         }
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(sourceType: .photoLibrary){ image in
+                self.image = image
+            }
+        }
+        
     }
 }
 
@@ -37,6 +43,7 @@ struct PhotoSelectTipView: View {
 
 struct PhotoSelectCardView: View{
     @Binding var image: UIImage?
+    @Binding var showImagePicker: Bool
     
     var body: some View {
         ZStack{
@@ -77,7 +84,7 @@ struct PhotoSelectCardView: View{
                 
                 
                 Button {
-                    print("앨범")
+                    showImagePicker = true
                 } label: {
                     ZStack{
                         RoundedRectangle(cornerRadius: 15)
