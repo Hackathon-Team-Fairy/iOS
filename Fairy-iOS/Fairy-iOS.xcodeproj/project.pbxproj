@@ -27,6 +27,7 @@
 		EEB07ACE2A345F2C003C6AAA /* FairyListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */; };
 		EEB07AD22A347588003C6AAA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EEB07AD12A347588003C6AAA /* Kingfisher */; };
 		EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD52A347C86003C6AAA /* Constant.swift */; };
+		EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD92A348637003C6AAA /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListCollectionViewCell.swift; sourceTree = "<group>"; };
 		EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListResponse.swift; sourceTree = "<group>"; };
 		EEB07AD52A347C86003C6AAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		EEB07AD92A348637003C6AAA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				07A3471B2A3472A200DF7BA6 /* EditStory */,
 				57134F7A2A3452BC00ED4C2D /* CreatingFairyTale */,
 				EEB07AC52A3451AD003C6AAA /* FairytaleList */,
+				EEB07AD72A3485C7003C6AAA /* Splash */,
 			);
 			path = "Fairy-iOS";
 			sourceTree = "<group>";
@@ -203,6 +206,22 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		EEB07AD72A3485C7003C6AAA /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07AD82A34862B003C6AAA /* View */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		EEB07AD82A34862B003C6AAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07AD92A348637003C6AAA /* SplashViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,6 +316,7 @@
 				07A3471F2A34742700DF7BA6 /* View+.swift in Sources */,
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
 				57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */,
+				EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,8 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let navigaionViewController = UINavigationController(rootViewController: FairytaleListViewController())
-        window.rootViewController = navigaionViewController
+        let splashViewController = SplashViewController()
+//        let navigaionViewController = UINavigationController(rootViewController: FairytaleListViewController())
+//        window.rootViewController = navigaionViewController
+        window.rootViewController = splashViewController
         window.makeKeyAndVisible()
         self.window = window
     }

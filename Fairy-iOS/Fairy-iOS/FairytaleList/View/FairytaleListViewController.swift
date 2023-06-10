@@ -38,15 +38,29 @@ final class FairytaleListViewController: UIViewController {
         return stackView
     }()
     
-    private let emptyButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 15
-        button.tintColor = .black
-        button.setTitle("등록한 동화가 없어요 😂", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
+    private let emptyView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
     }()
     
+    private let emptyImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: ImageNameSpace.emptyImage.rawValue)
+        
+        return imageView
+    }()
+    
+    private let emptyLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20)
+        label.textColor = .black
+        label.text = "아직 만들어진 동화가 없어요"
+        return label
+    }()
+   
     // MARK: - Properties
     
     private var datasource: UICollectionViewDiffableDataSource<Section, Item>?
@@ -71,8 +85,9 @@ final class FairytaleListViewController: UIViewController {
     }
     
     private func configureSubviews() {
-        [stackView, createButton].forEach { view.addSubview($0) }
-        [emptyButton, collectionView].forEach { stackView.addArrangedSubview($0)}
+        [stackView, createButton, collectionView, emptyView].forEach { view.addSubview($0) }
+        [emptyImageView, emptyLabel].forEach { emptyView.addSubview($0) }
+        
     }
     
     private func configureConstraint() {
@@ -81,12 +96,27 @@ final class FairytaleListViewController: UIViewController {
             $0.height.equalTo(50)
             $0.bottom.equalToSuperview().offset(-49)
         }
-        stackView.snp.makeConstraints {
+        collectionView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(createButton.snp.top).offset(-30)
         }
-        emptyButton.isHidden = true
+        
+        emptyView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(createButton.snp.top).offset(-30)
+        }
+        
+        emptyImageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        emptyLabel.snp.makeConstraints {
+            $0.top.equalTo(emptyImageView.snp.bottom).offset(32)
+            $0.centerX.equalToSuperview()
+        }
+        // TODO: 동화 없을 때, 로직 변경
+        emptyView.isHidden = true
     }
     
     private func registerCell() {
