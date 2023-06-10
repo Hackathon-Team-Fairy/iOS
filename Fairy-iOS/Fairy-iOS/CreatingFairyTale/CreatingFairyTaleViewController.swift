@@ -56,6 +56,8 @@ final class CreatingFairyTaleViewController: UIViewController {
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 20
         textView.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        textView.isScrollEnabled = false
+        textView.contentInset = .init(top: 15, left: 10, bottom: 15, right: 10)
         return textView
     }()
     
@@ -79,6 +81,8 @@ final class CreatingFairyTaleViewController: UIViewController {
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 20
         textView.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        textView.isScrollEnabled = false
+        textView.contentInset = .init(top: 15, left: 10, bottom: 15, right: 10)
         return textView
     }()
     
@@ -102,6 +106,8 @@ final class CreatingFairyTaleViewController: UIViewController {
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 20
         textView.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        textView.isScrollEnabled = false
+        textView.contentInset = .init(top: 15, left: 10, bottom: 15, right: 10)
         return textView
     }()
     
@@ -141,6 +147,7 @@ final class CreatingFairyTaleViewController: UIViewController {
     private func configureUIView() {
         configureSubViews()
         configureConstraint()
+        addTargets()
     }
     
     private func configureSubViews() {
@@ -161,9 +168,9 @@ final class CreatingFairyTaleViewController: UIViewController {
         thirdQuestionView.addSubview(thirdTextView)
         
         
-        let _ = [topViewFirstLabel, topViewSecondLabel].map { self.topView.addSubview($0) }
+        [topViewFirstLabel, topViewSecondLabel].forEach { topView.addSubview($0) }
         
-        let _ = [firstQuestionView, secondQuestionView, thirdQuestionView].map { self.contentView.addSubview($0)}
+        [firstQuestionView, secondQuestionView, thirdQuestionView].forEach { contentView.addSubview($0)}
     }
     
     private func configureConstraint() {
@@ -199,7 +206,7 @@ final class CreatingFairyTaleViewController: UIViewController {
             
             make.top.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(25)
-            make.height.equalTo(300)
+            make.height.greaterThanOrEqualTo(150)
         }
         
         firstLabel.snp.makeConstraints { make in
@@ -215,7 +222,7 @@ final class CreatingFairyTaleViewController: UIViewController {
             
             make.top.equalTo(firstQuestionView.snp.bottom).offset(25)
             make.horizontalEdges.equalToSuperview().inset(25)
-            make.height.equalTo(300)
+            make.height.greaterThanOrEqualTo(150)
         }
         
         secondLabel.snp.makeConstraints { make in
@@ -231,7 +238,7 @@ final class CreatingFairyTaleViewController: UIViewController {
             
             make.top.equalTo(secondQuestionView.snp.bottom).offset(25)
             make.horizontalEdges.equalToSuperview().inset(25)
-            make.height.equalTo(300)
+            make.height.greaterThanOrEqualTo(150)
             //make.bottom.equalToSuperview() // 이것이 중요함
         }
         
@@ -259,4 +266,13 @@ final class CreatingFairyTaleViewController: UIViewController {
         }
     }
     
+    private func addTargets() {
+        createButton.addTarget(self, action: #selector(createButtonTouchUpInside), for: .touchUpInside)
+    }
+    
+    @objc
+    private func createButtonTouchUpInside() {
+        let editStoryViewController = EditStoryViewController()
+        navigationController?.pushViewController(editStoryViewController, animated: true)
+    }
 }

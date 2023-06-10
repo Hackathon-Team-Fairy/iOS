@@ -140,8 +140,8 @@ final class FairytaleListViewController: UIViewController {
     
     @objc
     private func createButtonTouchUpInside() {
-        // TODO: 생성 버튼 눌릴시 이동
-        print("동화 생성하기 버튼 탭")
+        let creatingFairyTaleViewController = CreatingFairyTaleViewController()
+        navigationController?.pushViewController(creatingFairyTaleViewController, animated: true)
     }
 }
 
