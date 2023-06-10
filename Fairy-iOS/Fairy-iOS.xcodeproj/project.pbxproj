@@ -17,6 +17,9 @@
 		EEB07AC02A34432D003C6AAA /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ABF2A34432D003C6AAA /* Resource.swift */; };
 		EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AC12A344379003C6AAA /* HttpMethod.swift */; };
 		EEB07AC42A344528003C6AAA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AC32A344528003C6AAA /* NetworkError.swift */; };
+		EEB07AC72A345234003C6AAA /* FairytaleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AC62A345234003C6AAA /* FairytaleListViewController.swift */; };
+		EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */; };
+		EEB07ACE2A345F2C003C6AAA /* FairyListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		EEB07ABF2A34432D003C6AAA /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		EEB07AC12A344379003C6AAA /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		EEB07AC32A344528003C6AAA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		EEB07AC62A345234003C6AAA /* FairytaleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairytaleListViewController.swift; sourceTree = "<group>"; };
+		EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListCollectionViewCell.swift; sourceTree = "<group>"; };
+		EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyListResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 				EEB07ABA2A3440B7003C6AAA /* Network */,
 				EEB07AB92A34404B003C6AAA /* App */,
 				EEB07AA62A34394D003C6AAA /* ViewController.swift */,
+				EEB07AC52A3451AD003C6AAA /* FairytaleList */,
 			);
 			path = "Fairy-iOS";
 			sourceTree = "<group>";
@@ -108,6 +115,40 @@
 				EEB07AC12A344379003C6AAA /* HttpMethod.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		EEB07AC52A3451AD003C6AAA /* FairytaleList */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07ACC2A345F07003C6AAA /* Model */,
+				EEB07AC82A345278003C6AAA /* View */,
+			);
+			path = FairytaleList;
+			sourceTree = "<group>";
+		};
+		EEB07AC82A345278003C6AAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07AC92A34561A003C6AAA /* Cell */,
+				EEB07AC62A345234003C6AAA /* FairytaleListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EEB07AC92A34561A003C6AAA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07ACA2A345627003C6AAA /* FairyListCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EEB07ACC2A345F07003C6AAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,13 +227,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB07AC72A345234003C6AAA /* FairytaleListViewController.swift in Sources */,
 				EEB07AA72A34394D003C6AAA /* ViewController.swift in Sources */,
 				EEB07AC42A344528003C6AAA /* NetworkError.swift in Sources */,
 				EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */,
 				EEB07ABC2A3440D2003C6AAA /* NetworkService.swift in Sources */,
 				EEB07AC02A34432D003C6AAA /* Resource.swift in Sources */,
+				EEB07ACE2A345F2C003C6AAA /* FairyListResponse.swift in Sources */,
 				EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */,
 				EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */,
+				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
