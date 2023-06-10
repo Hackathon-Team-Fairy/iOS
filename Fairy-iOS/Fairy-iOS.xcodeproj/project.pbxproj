@@ -17,6 +17,7 @@
 		07A3471F2A34742700DF7BA6 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3471E2A34742700DF7BA6 /* View+.swift */; };
 		57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */; };
 		57134F7E2A3497A500ED4C2D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F7D2A3497A500ED4C2D /* UIColor+.swift */; };
+		57134F812A34CEC200ED4C2D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 57134F802A34CEC200ED4C2D /* Lottie */; };
 		EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA22A34394D003C6AAA /* AppDelegate.swift */; };
 		EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */; };
 		EEB07AAC2A343950003C6AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB07AAB2A343950003C6AAA /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 			files = (
 				EEB07AD22A347588003C6AAA /* Kingfisher in Frameworks */,
 				EEB07AB82A343AFE003C6AAA /* SnapKit in Frameworks */,
+				57134F812A34CEC200ED4C2D /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +266,7 @@
 			packageProductDependencies = (
 				EEB07AB72A343AFE003C6AAA /* SnapKit */,
 				EEB07AD12A347588003C6AAA /* Kingfisher */,
+				57134F802A34CEC200ED4C2D /* Lottie */,
 			);
 			productName = "Fairy-iOS";
 			productReference = EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */;
@@ -296,6 +299,7 @@
 			packageReferences = (
 				EEB07AB62A343AFE003C6AAA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EEB07AD02A347588003C6AAA /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				57134F7F2A34CEC200ED4C2D /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = EEB07AA02A34394D003C6AAA /* Products */;
 			projectDirPath = "";
@@ -556,6 +560,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		57134F7F2A34CEC200ED4C2D /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		EEB07AB62A343AFE003C6AAA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -575,6 +587,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		57134F802A34CEC200ED4C2D /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57134F7F2A34CEC200ED4C2D /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		EEB07AB72A343AFE003C6AAA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EEB07AB62A343AFE003C6AAA /* XCRemoteSwiftPackageReference "SnapKit" */;
