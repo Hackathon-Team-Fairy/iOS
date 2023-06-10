@@ -267,7 +267,7 @@ final class CreateFairyTaleViewController: UIViewController {
     
     @objc
     private func createButtonTouchUpInside() {
-        let editStoryViewController = EditStoryViewController()
+        let editStoryViewController = IndicatorViewController()
         navigationController?.pushViewController(editStoryViewController, animated: true)
     }
 }
