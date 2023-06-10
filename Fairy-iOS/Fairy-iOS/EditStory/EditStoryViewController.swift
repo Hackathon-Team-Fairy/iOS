@@ -25,12 +25,9 @@ class EditStoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FairyMakingSource.shared.clear()
         navigationController?.navigationBar.prefersLargeTitles = false
         view.backgroundColor = UIColor(hexCode: "F3F4EC")
-        
-        
-        print(diary)
-        
         // SwiftUI 화면을 UIKit에 통합
         let contentView = EditStoryView(diary: diary!)
         let hostingController = UIHostingController(rootView: contentView)
