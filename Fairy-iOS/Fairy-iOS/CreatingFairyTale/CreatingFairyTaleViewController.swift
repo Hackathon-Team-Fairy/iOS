@@ -10,6 +10,8 @@ import SnapKit
 
 final class CreatingFairyTaleViewController: UIViewController {
     
+    // MARK: - UI Property
+    
     let scrollView = UIScrollView()
     let contentView = UIView()
     
@@ -29,30 +31,92 @@ final class CreatingFairyTaleViewController: UIViewController {
     let topViewSecondLabel: UILabel = {
         let label = UILabel()
         label.text = "* 질문에 답을 하면 이야기를 만들어드려요."
-        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return label
     }()
     
     
     let firstQuestionView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         return view
     }()
     
+    let firstLabel: UILabel = {
+        let label = UILabel()
+        label.text = "오늘 가장 특별하게 느꼈던 순간은 무엇이었나요?"
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.numberOfLines = 0
+        return label
+    }()
     
+    let firstTextView: UITextView = {
+        let textView = UITextView()
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.borderWidth = 1
+        textView.layer.cornerRadius = 20
+        textView.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        return textView
+    }()
     
     let secondQuestionView: UIView = {
         let view = UIView()
-        view.backgroundColor = .green
+        
         return view
+    }()
+    
+    let secondLabel: UILabel = {
+        let label = UILabel()
+        label.text = "오늘 가장 특별하게 느꼈던 순간은 무엇이었나요?"
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let secondTextView: UITextView = {
+        let textView = UITextView()
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.borderWidth = 1
+        textView.layer.cornerRadius = 20
+        textView.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        return textView
     }()
     
     let thirdQuestionView: UIView = {
         let view = UIView()
-        view.backgroundColor = .blue
+
         return view
     }()
+    
+    let thirdLabel: UILabel = {
+        let label = UILabel()
+        label.text = "오늘 가장 특별하게 느꼈던 순간은 무엇이었나요?"
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let thirdTextView: UITextView = {
+        let textView = UITextView()
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.borderWidth = 1
+        textView.layer.cornerRadius = 20
+        textView.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        return textView
+    }()
+    
+    private let regenerativeButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 15
+        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderWidth = 1
+        button.setTitle("질문 다시 생성하기", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15)
+        button.setTitleColor(.lightGray, for: .normal)
+        return button
+    }()
+
     
     private let createButton: UIButton = {
         let button = UIButton()
@@ -65,7 +129,7 @@ final class CreatingFairyTaleViewController: UIViewController {
         return button
     }()
     
-    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,10 +149,21 @@ final class CreatingFairyTaleViewController: UIViewController {
         
         scrollView.addSubview(topView)
         scrollView.addSubview(contentView)
+        scrollView.addSubview(regenerativeButton)
         
-        _ = [topViewFirstLabel, topViewSecondLabel].map { self.topView.addSubview($0) }
+        firstQuestionView.addSubview(firstLabel)
+        firstQuestionView.addSubview(firstTextView)
+
+        secondQuestionView.addSubview(secondLabel)
+        secondQuestionView.addSubview(secondTextView)
+
+        thirdQuestionView.addSubview(thirdLabel)
+        thirdQuestionView.addSubview(thirdTextView)
         
-        _ = [firstQuestionView, secondQuestionView, thirdQuestionView].map { self.contentView.addSubview($0)}
+        
+        let _ = [topViewFirstLabel, topViewSecondLabel].map { self.topView.addSubview($0) }
+        
+        let _ = [firstQuestionView, secondQuestionView, thirdQuestionView].map { self.contentView.addSubview($0)}
     }
     
     private func configureConstraint() {
@@ -122,23 +197,58 @@ final class CreatingFairyTaleViewController: UIViewController {
         
         firstQuestionView.snp.makeConstraints { (make) in
             
-            make.leading.top.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+            make.horizontalEdges.equalToSuperview().inset(25)
             make.height.equalTo(300)
+        }
+        
+        firstLabel.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalToSuperview()
+        }
+        
+        firstTextView.snp.makeConstraints { make in
+            make.top.equalTo(firstLabel.snp.bottom).offset(20)
+            make.horizontalEdges.bottom.equalToSuperview()
         }
         
         secondQuestionView.snp.makeConstraints { (make) in
             
-            make.top.equalTo(firstQuestionView.snp.bottom)
-            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(firstQuestionView.snp.bottom).offset(25)
+            make.horizontalEdges.equalToSuperview().inset(25)
             make.height.equalTo(300)
+        }
+        
+        secondLabel.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalToSuperview()
+        }
+        
+        secondTextView.snp.makeConstraints { make in
+            make.top.equalTo(secondLabel.snp.bottom).offset(20)
+            make.horizontalEdges.bottom.equalToSuperview()
         }
         
         thirdQuestionView.snp.makeConstraints { (make) in
             
-            make.top.equalTo(secondQuestionView.snp.bottom)
-            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(secondQuestionView.snp.bottom).offset(25)
+            make.horizontalEdges.equalToSuperview().inset(25)
             make.height.equalTo(300)
-            make.bottom.equalToSuperview() // 이것이 중요함
+            //make.bottom.equalToSuperview() // 이것이 중요함
+        }
+        
+        thirdLabel.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalToSuperview()
+        }
+        
+        thirdTextView.snp.makeConstraints { make in
+            make.top.equalTo(thirdLabel.snp.bottom).offset(20)
+            make.horizontalEdges.bottom.equalToSuperview()
+        }
+        
+        regenerativeButton.snp.makeConstraints { make in
+            make.top.equalTo(thirdQuestionView.snp.bottom).offset(25)
+            make.horizontalEdges.equalToSuperview().inset(100)
+            make.height.equalTo(40)
+            make.bottom.equalToSuperview()
         }
         
         createButton.snp.makeConstraints { make in
