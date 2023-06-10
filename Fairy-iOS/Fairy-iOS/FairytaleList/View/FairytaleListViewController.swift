@@ -28,8 +28,22 @@ final class FairytaleListViewController: UIViewController {
         button.layer.cornerRadius = 15
         button.setTitle("동화 생성하기", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
-        button.tintColor = .black
         
+        return button
+    }()
+    
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        return stackView
+    }()
+    
+    private let emptyButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 15
+        button.tintColor = .black
+        button.setTitle("등록한 동화가 없어요 😂", for: .normal)
+        button.setTitleColor(.black, for: .normal)
         return button
     }()
     
@@ -53,10 +67,12 @@ final class FairytaleListViewController: UIViewController {
         configureSubviews()
         configureConstraint()
         configureDatasource()
+        addTargets()
     }
     
     private func configureSubviews() {
-        [collectionView, createButton].forEach { view.addSubview($0) }
+        [stackView, createButton].forEach { view.addSubview($0) }
+        [emptyButton, collectionView].forEach { stackView.addArrangedSubview($0)}
     }
     
     private func configureConstraint() {
@@ -65,11 +81,12 @@ final class FairytaleListViewController: UIViewController {
             $0.height.equalTo(50)
             $0.bottom.equalToSuperview().offset(-49)
         }
-        
-        collectionView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
+        stackView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(createButton.snp.top).offset(-30)
         }
+        emptyButton.isHidden = true
     }
     
     private func registerCell() {
@@ -77,6 +94,10 @@ final class FairytaleListViewController: UIViewController {
             FairyListCollectionViewCell.self,
             forCellWithReuseIdentifier: FairyListCollectionViewCell.identifier
         )
+    }
+    
+    private func addTargets() {
+        createButton.addTarget(self, action: #selector(createButtonTouchUpInside), for: .touchUpInside)
     }
     
     private func createCollectionViewLayout() -> UICollectionViewCompositionalLayout {
@@ -114,7 +135,16 @@ final class FairytaleListViewController: UIViewController {
         
         datasource?.apply(snapShot)
     }
+    
+    // MARK: Actions
+    
+    @objc
+    private func createButtonTouchUpInside() {
+        // TODO: 생성 버튼 눌릴시 이동
+        print("동화 생성하기 버튼 탭")
+    }
 }
+
 
 // MARK: UICollectionView Delegate
 
@@ -122,7 +152,7 @@ extension FairytaleListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = datasource?.itemIdentifier(for: indexPath) else { return }
         // TODO: 화면 이동
-        
+        print(item)
     }
 }
 
