@@ -8,6 +8,8 @@
 import UIKit
 
 import SnapKit
+import SwiftKeychainWrapper
+import Kingfisher
 
 final class BasePhotoSelectViewConotroller: UIViewController {
     
@@ -16,7 +18,11 @@ final class BasePhotoSelectViewConotroller: UIViewController {
     private let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "temp5")
+        imageView.backgroundColor = .gray
+        imageView.layer.cornerRadius = 15
+        imageView.layer.borderWidth = 3
+        imageView.layer.borderColor = UIColor(hexCode: "4DAC87", alpha: 1).cgColor
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -27,6 +33,7 @@ final class BasePhotoSelectViewConotroller: UIViewController {
         )
         
         collectionView.backgroundColor = .clear
+        collectionView.delegate = self
         
         return collectionView
     }()
@@ -36,14 +43,30 @@ final class BasePhotoSelectViewConotroller: UIViewController {
             frame: .zero,
             collectionViewLayout: createPhotoCollectionViewLayout()
         )
+        collectionView.backgroundColor = .clear
+        collectionView.delegate = self
         
         return collectionView
     }()
     
+    private let selectButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 1)
+        button.layer.cornerRadius = 15
+        button.setTitle("선택하기", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18)
+        return button
+    }()
+    
     // MARK: - Properties
+    
+    private var imageDict: [String: [PhotoItem]] = [:]
     
     private var categoryDatasource: UICollectionViewDiffableDataSource<CategorySection, CategoryItem>?
     private var photoDatasource: UICollectionViewDiffableDataSource<PhotoSection, PhotoItem>?
+    
+    private var selectedCategory: String?
+    private var selectedImageURL: String?
     
     // MARK: - Lifecycles
     
@@ -66,15 +89,14 @@ final class BasePhotoSelectViewConotroller: UIViewController {
     }
     
     private func configureSubviews() {
-        [thumbnailImageView, categoryCollectionView, photoCollectionView].forEach {
+        [thumbnailImageView, categoryCollectionView, photoCollectionView, selectButton].forEach {
             view.addSubview($0)
         }
     }
     
     private func configureConstraint() {
         thumbnailImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(40)
-//            $0.top.equalToSuperview().offset(70)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(15)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(240)
             $0.width.equalTo(180)
@@ -83,6 +105,18 @@ final class BasePhotoSelectViewConotroller: UIViewController {
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.top.equalTo(thumbnailImageView.snp.bottom).offset(40)
             $0.height.equalTo(35)
+        }
+        
+        photoCollectionView.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.top.equalTo(categoryCollectionView.snp.bottom).offset(15)
+            $0.bottom.equalTo(selectButton.snp.top).offset(-10)
+        }
+        
+        selectButton.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
         }
     }
     
@@ -97,7 +131,7 @@ final class BasePhotoSelectViewConotroller: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
 
-        group.edgeSpacing = .init(leading: nil, top: nil, trailing: .fixed(10), bottom: nil)
+        group.edgeSpacing = .init(leading: nil, top: nil, trailing: .fixed(5), bottom: nil)
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
@@ -109,7 +143,7 @@ final class BasePhotoSelectViewConotroller: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3),
                                               heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        item.contentInsets = .init(top: 5, leading: 10, bottom: 5, trailing: 10)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                heightDimension: .fractionalHeight(1/2))
         
@@ -126,6 +160,10 @@ final class BasePhotoSelectViewConotroller: UIViewController {
             BasePhotoCategoryCell.self,
             forCellWithReuseIdentifier: BasePhotoCategoryCell.identifier
         )
+        photoCollectionView.register(
+            BasePhotoImageCell.self,
+            forCellWithReuseIdentifier: BasePhotoImageCell.identifier
+        )
     }
     
     private func configureDatasource() {
@@ -137,16 +175,77 @@ final class BasePhotoSelectViewConotroller: UIViewController {
                 
                 return cell
             })
+        photoDatasource = UICollectionViewDiffableDataSource<PhotoSection, PhotoItem>(
+            collectionView: photoCollectionView,
+            cellProvider: { collectionView, indexPath, item in
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: BasePhotoImageCell.identifier,
+                    for: indexPath
+                ) as? BasePhotoImageCell else { return UICollectionViewCell() }
+                
+                cell.configureUI(item: item)
+                return cell
+            })
     }
     
     // TODO: API로 카테고리랑 받아오면 처리
     
     private func requestPhotoInfo() {
-        var categorySnapshot = NSDiffableDataSourceSnapshot<CategorySection, CategoryItem>()
-        categorySnapshot.appendSections([.main])
-        categorySnapshot.appendItems(["하하", "호호", "하하하하하", "하하하하"])
+        let resource = Resource<[BaseImageResponse]>(
+            base: Utils.BASE_URL + "images",
+            method: .GET,
+            paramaters: [:],
+            header: ["Authorization": "Bearer \(KeychainWrapper.standard.string(forKey: Utils.ACCESS_TOEKN) ?? "")" ]
+        )
         
-        categoryDatasource?.apply(categorySnapshot)
+        NetworkService.shared.load(resource) { response in
+            switch response {
+            case .success(let response):
+                response.forEach { self.imageDict[$0.type] = $0.imagesList.map { PhotoItem(image: $0) }  }
+                var categorySnapshot = NSDiffableDataSourceSnapshot<CategorySection, CategoryItem>()
+                categorySnapshot.appendSections([.main])
+                categorySnapshot.appendItems(self.imageDict.keys.map { String($0) })
+                print(self.imageDict.keys.map { String($0) })
+                self.categoryDatasource?.apply(categorySnapshot)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        
+        
+    }
+}
+
+extension BasePhotoSelectViewConotroller: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == categoryCollectionView,
+           let item = categoryDatasource?.itemIdentifier(for: indexPath) {
+            var photoSnapshot = NSDiffableDataSourceSnapshot<PhotoSection, PhotoItem>()
+            photoSnapshot.appendSections([.main])
+//            print(imageDict[item, default: []])
+            photoSnapshot.appendItems(imageDict[item, default: []], toSection: .main)
+            selectedCategory = item
+            
+            
+            photoDatasource?.apply(photoSnapshot)
+        }
+        
+        if collectionView == photoCollectionView,
+           let item = photoDatasource?.itemIdentifier(for: indexPath),
+           let url = URL(string: item.image),
+            let selectedCategory {
+            for i in 0..<imageDict[selectedCategory, default: []].count {
+                imageDict[selectedCategory, default: []][i].isSelected = item.image == imageDict[selectedCategory, default: []][i].image
+            }
+            
+            collectionView.reloadData()
+            print(imageDict[selectedCategory, default: []])
+            thumbnailImageView.kf.setImage(with: url)
+            selectedImageURL = item.image
+        }
+        
     }
 }
 
@@ -163,5 +262,12 @@ extension BasePhotoSelectViewConotroller {
         case main
     }
     
-    typealias PhotoItem = String
+//    typealias PhotoItem = String
+    
+   
+}
+
+struct PhotoItem: Hashable {
+    let image: String
+    var isSelected: Bool = false
 }
