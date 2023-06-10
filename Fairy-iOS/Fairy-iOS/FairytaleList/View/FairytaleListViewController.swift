@@ -89,6 +89,7 @@ final class FairytaleListViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
+        view.backgroundColor = UIColor(hexCode: <#T##String#>)
         configureSubviews()
         configureConstraint()
         configureNavigation()

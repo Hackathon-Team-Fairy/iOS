@@ -13,7 +13,7 @@ import SwiftKeychainWrapper
 class PhotoSelectViewController: UIViewController {
     private let completeButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .gray
+        button.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 1)
         button.layer.cornerRadius = 15
         button.setTitle("완성하기", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
