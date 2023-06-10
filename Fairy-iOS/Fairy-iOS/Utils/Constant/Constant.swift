@@ -9,6 +9,7 @@ import Foundation
 
 enum ImageNameSpace: String {
     case emptyImage
-    case loadingImageView
+//    case loadingImageView
     case navigationBackButton
+    case splashImage
 }
