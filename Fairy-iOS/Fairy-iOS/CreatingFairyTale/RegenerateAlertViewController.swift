@@ -28,7 +28,7 @@ class RegenerateAlertViewController: UIViewController {
     private let alertMessage: UILabel = {
         let label = UILabel()
         label.text = "질문을 다시 생성하시면\n기존의 답변들은 삭제됩니다."
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 15)
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -38,7 +38,7 @@ class RegenerateAlertViewController: UIViewController {
         let stackView = UIStackView()
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
-        stackView.spacing = 35
+        stackView.spacing = 15
         return stackView
     }()
     
@@ -46,9 +46,9 @@ class RegenerateAlertViewController: UIViewController {
         let button = UIButton()
         button.setTitle("취소", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.backgroundColor = UIColor(hexCode: "D9D9D9")
+        button.backgroundColor = UIColor.red
         button.layer.cornerRadius = 15
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
     
@@ -56,9 +56,9 @@ class RegenerateAlertViewController: UIViewController {
         let button = UIButton()
         button.setTitle("생성하기", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.backgroundColor = UIColor(hexCode: "D9D9D9")
+        button.backgroundColor = UIColor(hexCode: "4DAC87")
         button.layer.cornerRadius = 15
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
 
@@ -88,7 +88,6 @@ class RegenerateAlertViewController: UIViewController {
         alertView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.equalTo(300)
-            make.height.equalTo(200)
         }
         
         alertTitle.snp.makeConstraints { make in
@@ -102,8 +101,9 @@ class RegenerateAlertViewController: UIViewController {
         }
         
         buttonStackView.snp.makeConstraints { make in
-            make.top.equalTo(alertMessage.snp.bottom).offset(35)
-            make.horizontalEdges.bottom.equalToSuperview().inset(30)
+            make.top.equalTo(alertMessage.snp.bottom).offset(25)
+            make.height.equalTo(40)
+            make.horizontalEdges.bottom.equalToSuperview().inset(25)
         }
     }
     

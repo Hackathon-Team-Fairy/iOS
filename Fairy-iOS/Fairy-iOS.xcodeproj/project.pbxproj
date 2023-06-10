@@ -101,6 +101,7 @@
 		57134F7A2A3452BC00ED4C2D /* CreatingFairyTale */ = {
 			isa = PBXGroup;
 			children = (
+				EEB07ADD2A34B275003C6AAA /* TempViewController.swift */,
 				57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */,
 				57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */,
 			);
@@ -192,7 +193,6 @@
 			children = (
 				EEB07AC92A34561A003C6AAA /* Cell */,
 				EEB07AC62A345234003C6AAA /* FairytaleListViewController.swift */,
-				EEB07ADD2A34B275003C6AAA /* TempViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

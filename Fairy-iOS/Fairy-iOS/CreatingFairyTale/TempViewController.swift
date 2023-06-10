@@ -13,38 +13,37 @@ final class TempViewController: UIViewController {
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        
         return scrollView
     }()
     
     private let contentView: UIView = {
         let view = UIView()
-        
-        view.backgroundColor = .yellow
-        
+        view.backgroundColor = UIColor(hexCode: "F3F4EC")
         return view
     }()
     
     private let titleView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        
+        view.spacing = 10
+        view.distribution = .fill
+        view.alignment = .fill
         return view
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(hexCode: "4DAC87")
         label.text = "동화 이야기를 만들어 볼까요?"
-        label.font = .systemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.text = "질문에 답을하면 화면"
-        label.font = .systemFont(ofSize: 12)
+        label.text = "* 질문에 답을하면 화면 이야기를 만들어드려요."
+        label.font = .systemFont(ofSize: 15)
         return label
     }()
     
@@ -60,13 +59,20 @@ final class TempViewController: UIViewController {
         let label = UILabel()
         label.textColor = .black
         label.text = "Q. 오늘 가장 특별하게 느꼈던 순간은 무엇이었나요?"
-        label.font = .systemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.numberOfLines = 0
         return label
     }()
     
     private let firstAnswerTextView: UITextView = {
         let textView = UITextView()
         textView.isScrollEnabled = false
+        textView.layer.borderColor = UIColor(hexCode: "4DAC87").cgColor
+        textView.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 0.1)
+        textView.layer.borderWidth = 1
+        textView.layer.cornerRadius = 20
+        textView.contentInset = .init(top: 15, left: 10, bottom: 15, right: 10)
+        textView.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return textView
     }()
     
@@ -82,13 +88,20 @@ final class TempViewController: UIViewController {
         let label = UILabel()
         label.textColor = .black
         label.text = "Q. 오늘 가장 특별하게 느꼈던 순간은 무엇이었나요?"
-        label.font = .systemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.numberOfLines = 0
         return label
     }()
     
     private let secondAnswerTextView: UITextView = {
         let textView = UITextView()
         textView.isScrollEnabled = false
+        textView.layer.borderColor = UIColor(hexCode: "4DAC87").cgColor
+        textView.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 0.1)
+        textView.layer.borderWidth = 1
+        textView.layer.cornerRadius = 20
+        textView.contentInset = .init(top: 15, left: 10, bottom: 15, right: 10)
+        textView.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return textView
     }()
     
@@ -104,19 +117,41 @@ final class TempViewController: UIViewController {
         let label = UILabel()
         label.textColor = .black
         label.text = "Q. 오늘 가장 특별하게 느꼈던 순간은 무엇이었나요?"
-        label.font = .systemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.numberOfLines = 0
         return label
     }()
     
     private let thirdAnswerTextView: UITextView = {
         let textView = UITextView()
         textView.isScrollEnabled = false
+        textView.layer.borderColor = UIColor(hexCode: "4DAC87").cgColor
+        textView.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 0.1)
+        textView.layer.borderWidth = 1
+        textView.layer.cornerRadius = 20
+        textView.contentInset = .init(top: 15, left: 10, bottom: 15, right: 10)
+        textView.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return textView
+    }()
+    
+    private let regenerateButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(hexCode: "F3F4EC")
+        button.layer.cornerRadius = 15
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.borderWidth = 1
+        button.setTitle("질문 다시 생성하기", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15)
+        button.setTitleColor(.gray, for: .normal)
+        return button
     }()
     
     private let createButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .brown
+        button.backgroundColor = UIColor(hexCode: "4DAC87")
+        button.layer.cornerRadius = 15
+        button.setTitle("동화 생성하기", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18)
         return button
     }()
     
@@ -126,11 +161,13 @@ final class TempViewController: UIViewController {
         return view
     }()
     
+    // MARK: - Function
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hexCode: "F3F4EC")
         configureSubviews()
         configureConstraint()
+        addTargets()
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(scrollViewTapped))
@@ -140,7 +177,7 @@ final class TempViewController: UIViewController {
     private func configureSubviews() {
         [scrollView, createButton, bottomView].forEach { view.addSubview($0) }
         scrollView.addSubview(contentView)
-        [titleView, firstStackView, secondStackView, thirdStackView].forEach {
+        [titleView, firstStackView, secondStackView, thirdStackView, regenerateButton].forEach {
             contentView.addSubview($0)
         }
         [titleLabel, descriptionLabel].forEach { titleView.addArrangedSubview($0) }
@@ -152,7 +189,7 @@ final class TempViewController: UIViewController {
     private func configureConstraint() {
         scrollView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalTo(createButton.snp.top).offset(-25)
+            $0.bottom.equalTo(createButton.snp.top).offset(-15)
             
         }
         
@@ -167,7 +204,7 @@ final class TempViewController: UIViewController {
         }
         
         firstStackView.snp.makeConstraints {
-            $0.top.equalTo(titleView.snp.bottom).offset(25)
+            $0.top.equalTo(titleView.snp.bottom).offset(50)
             $0.horizontalEdges.equalToSuperview().inset(25)
         }
         
@@ -187,24 +224,51 @@ final class TempViewController: UIViewController {
         thirdStackView.snp.makeConstraints {
             $0.top.equalTo(secondStackView.snp.bottom).offset(25)
             $0.horizontalEdges.equalToSuperview().inset(25)
-            $0.bottom.equalToSuperview().offset(-25)
+//            $0.bottom.equalToSuperview().offset(-25)
         }
         
         thirdAnswerTextView.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(150)
         }
         
+        regenerateButton.snp.makeConstraints { make in
+            make.top.equalTo(thirdStackView.snp.bottom).offset(25)
+            make.horizontalEdges.equalToSuperview().inset(100)
+            make.height.equalTo(40)
+            make.bottom.equalToSuperview().offset(-25)
+        }
+        
         createButton.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(25)
-            $0.bottom.equalTo(bottomView.snp.top).offset(-25)
+            $0.bottom.equalTo(bottomView.snp.top).offset(-50)
             $0.height.equalTo(50)
         }
         
         bottomView.snp.makeConstraints {
             $0.horizontalEdges.bottom.equalToSuperview()
-            $0.height.equalTo(1)
+            $0.height.equalTo(0)
         }
         
+    }
+    
+    private func addTargets() {
+        createButton.addTarget(self, action: #selector(createButtonTouchUpInside), for: .touchUpInside)
+        regenerateButton.addTarget(self, action: #selector(regenerateButtonTouchUpInside), for: .touchUpInside)
+    }
+    
+    @objc
+    private func regenerateButtonTouchUpInside() {
+        let regenerateAlertViewController = RegenerateAlertViewController()
+        regenerateAlertViewController.modalPresentationStyle = .overFullScreen
+        
+        self.present(regenerateAlertViewController, animated: false)
+        
+    }
+    
+    @objc
+    private func createButtonTouchUpInside() {
+        let editStoryViewController = EditStoryViewController()
+        navigationController?.pushViewController(editStoryViewController, animated: true)
     }
 }
 
@@ -223,9 +287,10 @@ extension TempViewController {
     
     @objc private func keyboardWillHide(_ notification: Notification) {
         bottomView.snp.updateConstraints {
-            $0.height.equalTo(1)
+            $0.height.equalTo(0)
         }
     }
+    
     @objc private func scrollViewTapped() {
         view.endEditing(true)
     }
