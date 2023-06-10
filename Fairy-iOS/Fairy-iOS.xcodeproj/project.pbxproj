@@ -44,6 +44,8 @@
 		EECAE9812A34DCFF00FC0AEB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE9802A34DCFF00FC0AEB /* Utils.swift */; };
 		EECAE9842A34DF1100FC0AEB /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE9832A34DF1100FC0AEB /* TokenResponse.swift */; };
 		EECAE9872A34E73800FC0AEB /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = EECAE9862A34E73800FC0AEB /* SwiftKeychainWrapper */; };
+		EECAE98A2A34F9CB00FC0AEB /* BaseImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE9892A34F9CB00FC0AEB /* BaseImageResponse.swift */; };
+		EECAE98E2A350D1E00FC0AEB /* BasePhotoImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE98D2A350D1E00FC0AEB /* BasePhotoImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		EECAE97D2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePhotoSelectViewController.swift; sourceTree = "<group>"; };
 		EECAE9802A34DCFF00FC0AEB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EECAE9832A34DF1100FC0AEB /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		EECAE9892A34F9CB00FC0AEB /* BaseImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImageResponse.swift; sourceTree = "<group>"; };
+		EECAE98D2A350D1E00FC0AEB /* BasePhotoImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePhotoImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +322,7 @@
 		EECAE97A2A34DB9600FC0AEB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EECAE9882A34F93E00FC0AEB /* Model */,
 				EECAE97B2A34DB9600FC0AEB /* Cell */,
 				EECAE97D2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift */,
 			);
@@ -327,6 +332,7 @@
 		EECAE97B2A34DB9600FC0AEB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				EECAE98D2A350D1E00FC0AEB /* BasePhotoImageCell.swift */,
 				EECAE97C2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift */,
 			);
 			path = Cell;
@@ -336,6 +342,14 @@
 			isa = PBXGroup;
 			children = (
 				EECAE9832A34DF1100FC0AEB /* TokenResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EECAE9882A34F93E00FC0AEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EECAE9892A34F9CB00FC0AEB /* BaseImageResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,6 +441,7 @@
 				074814F82A34FE5300DF6A85 /* ReadingStoryViewController.swift in Sources */,
 				EECAE97E2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift in Sources */,
 				EEB07AC72A345234003C6AAA /* FairytaleListViewController.swift in Sources */,
+				EECAE98A2A34F9CB00FC0AEB /* BaseImageResponse.swift in Sources */,
 				07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */,
 				EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */,
 				EECAE9812A34DCFF00FC0AEB /* Utils.swift in Sources */,
@@ -449,6 +464,7 @@
 				07A3471F2A34742700DF7BA6 /* View+.swift in Sources */,
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
 				074814F62A34F79500DF6A85 /* ReadingStoryView.swift in Sources */,
+				EECAE98E2A350D1E00FC0AEB /* BasePhotoImageCell.swift in Sources */,
 				57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */,
 				EECAE97F2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift in Sources */,
 				EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */,
