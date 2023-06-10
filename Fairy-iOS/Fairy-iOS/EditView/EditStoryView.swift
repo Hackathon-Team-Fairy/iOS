@@ -10,11 +10,18 @@ import SwiftUI
 struct EditStoryView: View {
     @State var title: String = ""
     
+    @State var stroy1: String = "‘새로운 팀원, 새로운 도전' 옛날 어느 마을에 한 작가가 살고 있었다. 이 작가는 매일같이 새로운 도전을 받아들이며 그것을 극복하며 살아가고 있었다. 어느 날 해커톤 참가 신청을 하게 되어 새로운 팀원들을 만나게 되었다   도전을 받아들이며 그것을 극복하며 살아가고 있었다. 어느 날 해커톤 참가 신청을 하게 되어 새로운 팀원들을 만나게 되었다 도전을 받아들이며 그것을 극복하며 살아가고 있었다. 어느 날 해커톤 참가 신청을 하게 되어 새로운 팀원들을 만나게 되었다 "
+    
     var body: some View {
         VStack{
             EditTipView()
             
             EditTitleView(name: $title)
+            
+            EditTextView(story: $stroy1)
+        }
+        .onTapGesture {
+            self.endTextEditing()
         }
     }
     
@@ -64,6 +71,38 @@ struct EditTitleView: View {
             }
         }
 
+        
+    }
+}
+
+
+struct EditTextView: View {
+    @Binding var story: String
+    
+    init(story: Binding<String>) {
+        self._story = story
+        UITextView.appearance().backgroundColor = .clear
+    }
+    
+    var body: some View {
+        
+        ZStack{
+            
+            RoundedRectangle(cornerRadius: 32)
+                .foregroundColor(.gray)
+                .frame(width: 297, height: 359)
+
+            
+            TextEditor(text: $story)
+                          .padding()
+                          .foregroundColor(Color.black)
+                          .font(.system(size: 20))
+                          .colorMultiply(.gray)
+                          .lineSpacing(5) //줄 간격
+                          .frame(width: 246, height: 359)
+
+                          
+        }
         
     }
 }
