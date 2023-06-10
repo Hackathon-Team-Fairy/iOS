@@ -12,6 +12,7 @@
 		07A3471D2A3473E700DF7BA6 /* EditStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3471C2A3473E700DF7BA6 /* EditStoryView.swift */; };
 		07A3471F2A34742700DF7BA6 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3471E2A34742700DF7BA6 /* View+.swift */; };
 		57134F782A34526500ED4C2D /* CreatingFairyTaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */; };
+		57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */; };
 		EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA22A34394D003C6AAA /* AppDelegate.swift */; };
 		EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */; };
 		EEB07AAC2A343950003C6AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB07AAB2A343950003C6AAA /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		07A3471C2A3473E700DF7BA6 /* EditStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditStoryView.swift; sourceTree = "<group>"; };
 		07A3471E2A34742700DF7BA6 /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingFairyTaleViewController.swift; sourceTree = "<group>"; };
+		57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegenerateAlertViewController.swift; sourceTree = "<group>"; };
 		EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fairy-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB07AA22A34394D003C6AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				57134F772A34526500ED4C2D /* CreatingFairyTaleViewController.swift */,
+				57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */,
 			);
 			path = CreatingFairyTale;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */,
 				07A3471F2A34742700DF7BA6 /* View+.swift in Sources */,
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
+				57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
