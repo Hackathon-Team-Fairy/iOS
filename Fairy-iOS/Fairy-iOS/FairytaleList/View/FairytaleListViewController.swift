@@ -18,7 +18,7 @@ final class FairytaleListViewController: UIViewController {
         let collectionView: UICollectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: createCollectionViewLayout())
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor(hexCode: "F3F4EC")
         collectionView.delegate = self
         return collectionView
     }()
@@ -41,7 +41,7 @@ final class FairytaleListViewController: UIViewController {
     
     private let emptyView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hexCode: "F3F4EC")
         return view
     }()
     
@@ -70,7 +70,7 @@ final class FairytaleListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hexCode: "F3F4EC")
         configureUI()
         registerCell()
         requestDiary()
