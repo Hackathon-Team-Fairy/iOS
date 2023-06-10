@@ -30,14 +30,14 @@ final class FairyListCollectionViewCell: UICollectionViewCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 18)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.textAlignment = .center
         return label
     }()
     
     private let createDateLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13)
+        label.font = .systemFont(ofSize: 13, weight: .light)
         label.textColor = UIColor(hexCode: "828282", alpha: 1)
         label.textAlignment = .center
         return label
