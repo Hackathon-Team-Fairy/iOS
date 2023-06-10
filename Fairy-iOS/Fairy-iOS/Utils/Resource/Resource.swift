@@ -12,6 +12,7 @@ struct Resource<T: Decodable> {
     let method: HttpMethod
     let paramaters: [String: String]
     let header: [String: String]
+    var body: Data? = nil
     
     var urlRequest: URLRequest? {
         guard var urlComponents = URLComponents(string: base) else { return nil }
@@ -24,9 +25,17 @@ struct Resource<T: Decodable> {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        if method == .POST,  let jsonData = try? JSONEncoder().encode(paramaters) {
-            request.httpBody = jsonData
+
+
+//        if method == .POST,  let jsonData = try? JSONEncoder().encode(paramaters) {
+//            request.httpBody = jsonData
+//        }
+        if method == .POST, let body = body {
+            request.httpBody = body
+        } else {
+            let jsonData = try? JSONEncoder().encode(paramaters)
+            request.httpBody = jsonData ?? Data()
+
         }
         
         header.forEach { key, value in

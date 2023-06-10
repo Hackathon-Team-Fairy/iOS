@@ -21,10 +21,15 @@ class EditStoryViewController: UIViewController {
         return button
     }()
     
+    var diary: [String]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
         view.backgroundColor = UIColor(hexCode: "F3F4EC")
+        
+        
+        print(diary)
         
         // SwiftUI 화면을 UIKit에 통합
         let contentView = EditStoryView()

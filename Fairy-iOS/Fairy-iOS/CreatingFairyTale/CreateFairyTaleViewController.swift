@@ -267,8 +267,14 @@ final class CreateFairyTaleViewController: UIViewController {
     
     @objc
     private func createButtonTouchUpInside() {
-        let editStoryViewController = IndicatorViewController()
-        navigationController?.pushViewController(editStoryViewController, animated: true)
+        let indicatorViewController = IndicatorViewController()
+        indicatorViewController.indicatorStyle = IndicatorStyle.isGenerate
+        indicatorViewController.qnaList = QnAList(contentList: [
+            QnA(question: firstQuestTitleLabel.text ?? "", answer: firstAnswerTextView.text),
+            QnA(question: secondQuestTitleLabel.text ?? "", answer: secondAnswerTextView.text),
+            QnA(question: thirdQuestTitleLabel.text ?? "", answer: thirdAnswerTextView.text)
+        ])
+        navigationController?.pushViewController(indicatorViewController, animated: true)
     }
 }
 
