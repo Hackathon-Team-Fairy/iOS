@@ -26,6 +26,8 @@ final class SplashViewController: UIViewController {
         imageView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+        requestJWT()
+        
         startAnimation()
     }
     
@@ -45,6 +47,24 @@ final class SplashViewController: UIViewController {
         } else {
             viewControllerToPresent.modalPresentationStyle = .overFullScreen
             self.present(viewControllerToPresent, animated: true, completion: nil)
+        }
+    }
+    
+    private func requestJWT() {
+        
+        let resource = Resource<TokenResponse>(
+            base: Utils.BASE_URL + "fairy/device",
+            method: .POST,
+            paramaters: ["deviceName": Utils.getDeviceUUID()],
+            header: [:]
+        )
+        NetworkService.shared.load(resource) { result in
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
         }
     }
     
