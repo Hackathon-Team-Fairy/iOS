@@ -30,13 +30,15 @@ struct Resource<T: Decodable> {
 //        if method == .POST,  let jsonData = try? JSONEncoder().encode(paramaters) {
 //            request.httpBody = jsonData
 //        }
-        if method == .POST, let body = body {
-            request.httpBody = body
-        } else {
-            let jsonData = try? JSONEncoder().encode(paramaters)
-            request.httpBody = jsonData ?? Data()
-
+        if method == .POST {
+            if let body = body {
+                request.httpBody = body
+            } else {
+                let jsonData = try? JSONEncoder().encode(paramaters)
+                request.httpBody = jsonData ?? Data()
+            }
         }
+        
         
         header.forEach { key, value in
             request.addValue(value, forHTTPHeaderField: key)
