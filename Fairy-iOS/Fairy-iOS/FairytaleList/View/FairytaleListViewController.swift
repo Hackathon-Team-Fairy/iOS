@@ -73,8 +73,7 @@ final class FairytaleListViewController: UIViewController {
         view.backgroundColor = .white
         configureUI()
         registerCell()
-        requestFairytaleList()
-        print(KeychainWrapper.standard.string(forKey: Utils.ACCESS_TOEKN))
+        requestDiary()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,8 +127,7 @@ final class FairytaleListViewController: UIViewController {
             $0.top.equalTo(emptyImageView.snp.bottom).offset(32)
             $0.centerX.equalToSuperview()
         }
-        // TODO: 동화 없을 때, 로직 변경
-        emptyView.isHidden = true
+        
     }
     
     private func configureNavigation() {
@@ -175,14 +173,6 @@ final class FairytaleListViewController: UIViewController {
         })
     }
     
-    // TODO: API 통신으로 코드 변경
-    private func requestFairytaleList() {
-        var snapShot = NSDiffableDataSourceSnapshot<Section, Item>()
-        snapShot.appendSections([.main])
-        snapShot.appendItems(FairyListModel.list)
-        
-        datasource?.apply(snapShot)
-    }
     
     // MARK: Actions
     
@@ -190,6 +180,30 @@ final class FairytaleListViewController: UIViewController {
     private func createButtonTouchUpInside() {
         let creatingFairyTaleViewController = CreateFairyTaleViewController()
         navigationController?.pushViewController(creatingFairyTaleViewController, animated: true)
+    }
+    
+    // MARK: Network
+    private func requestDiary() {
+        let resoruce = Resource<[FairyListResponse]>(
+            base: Utils.BASE_URL + "diary/all",
+            method: .GET,
+            paramaters: [:],
+            header: ["Authorization": "Bearer \(KeychainWrapper.standard.string(forKey: Utils.ACCESS_TOEKN) ?? "")" ]
+        )
+        NetworkService.shared.load(resoruce) { [weak self] response in
+            switch response {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self?.emptyView.isHidden = !response.isEmpty
+                }
+                var snapShot = NSDiffableDataSourceSnapshot<Section, Item>()
+                snapShot.appendSections([.main])
+                snapShot.appendItems(response)
+                self?.datasource?.apply(snapShot)
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
     }
 }
 
@@ -212,46 +226,6 @@ extension FairytaleListViewController {
         case main
     }
     
-    // MARK: 임시 데이터
-    struct FairyListModel: Hashable {
-        let image: UIImage?
-        let name: String
-        let date: String
-        
-        static let list: [FairyListModel] = [
-            FairyListModel(
-                image: UIImage(named: "temp1"),
-                name: "책 이름 1",
-                date: "2020.06.10"
-            ),
-            FairyListModel(
-                image: UIImage(named: "temp2"),
-                name: "책 이름 2",
-                date: "2020.06.11"
-            ),
-            FairyListModel(
-                image: UIImage(named: "temp3"),
-                name: "책 이름 3",
-                date: "2020.06.12"
-            ),
-            FairyListModel(
-                image: UIImage(named: "temp4"),
-                name: "책 이름 4",
-                date: "2020.06.13"
-            ),
-            FairyListModel(
-                image: UIImage(named: "temp3"),
-                name: "책 이름 5",
-                date: "2020.06.12"
-            ),
-            FairyListModel(
-                image: UIImage(named: "temp4"),
-                name: "책 이름 6",
-                date: "2020.06.13"
-            )
-        ]
-    }
-    
-    typealias Item = FairyListModel
+    typealias Item = FairyListResponse
 }
 
