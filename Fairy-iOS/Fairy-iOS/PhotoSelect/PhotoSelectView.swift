@@ -24,10 +24,10 @@ struct PhotoSelectView: View {
                     .padding(.top, 33)
                     .padding(.bottom, 34)
                 
-                PhotoThumbNailView(title: fms.title, image: $image)
+                PhotoThumbNailView(title: fms.title, image: $fms.image)
                     .padding(.bottom, 27)
                 
-                PhotoControlButton(image: $image, showImagePicker: $showImagePicker)
+                PhotoControlButton(image: $fms.image, showImagePicker: $showImagePicker)
                 
                 Spacer()
             }
@@ -127,8 +127,10 @@ struct PhotoControlButton: View{
             VStack(spacing: 0){
                 
                 HStack{
-                    Image(systemName: "photo")
-                        .foregroundColor(.white)
+                    Image("photo_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 28, height: 28)
                     Text("앨범에서 가져오기")
                         .font(.system(size: 15))
                         .foregroundColor(.white)
@@ -145,8 +147,10 @@ struct PhotoControlButton: View{
                 
                 
                 HStack{
-                    Image(systemName: "photo")
-                        .foregroundColor(.white)
+                    Image("flower_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 28, height: 28)
                     Text("앨범에서 가져오기")
                         .font(.system(size: 15))
                         .foregroundColor(.white)
@@ -157,33 +161,7 @@ struct PhotoControlButton: View{
             
         }
         .frame(width: 191, height: 95)
-        
-        
-//        VStack{
-//            Button {
-//                showImagePicker = true
-//            } label: {
-//                ZStack{
-//                    RoundedRectangle(cornerRadius: 15)
-//                        .foregroundColor(Color(hex: "4DAC87"))
-//                        .frame(width: 191, height: 43)
-//
-//                    RoundedRectangle(cornerRadius: 15)
-//                        .foregroundColor(Color(hex: "428F71"))
-//                        .frame(width: 189, height: 41)
-//
-//                    HStack{
-//                        Image(systemName: "photo")
-//                            .foregroundColor(.white)
-//                        Text("앨범에서 가져오기")
-//                            .font(.system(size: 15))
-//                            .foregroundColor(.white)
-//                    }
-//
-//                }
-//
-//            }
-//        }
+
     }
 }
 
