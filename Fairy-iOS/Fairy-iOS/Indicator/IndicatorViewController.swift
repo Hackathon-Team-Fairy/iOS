@@ -7,22 +7,38 @@
 
 import UIKit
 import Lottie
+import SnapKit
 import SwiftKeychainWrapper
 
 class IndicatorViewController: UIViewController {
-
     
-    private var animationView: LottieAnimationView?
+    private let messageLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 18)
+        return label
+    }()
+    
+    private var animationView: LottieAnimationView = {
+        let view = LottieAnimationView(name: "book")
+        view.contentMode = .scaleAspectFit
+        view.loopMode = .loop
+        view.animationSpeed = 0.5
+        return view
+    }()
     
     var indicatorStyle: IndicatorStyle?
     var qnaList: QnAList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = UIColor(hexCode: "F3F4EC")
         
-        configureAnimationView()
+        messageLabel.text = indicatorStyle?.rawValue
+        
+        configureUIView()
         
         startAnimation()
         
@@ -40,17 +56,33 @@ class IndicatorViewController: UIViewController {
         navigationItem.setHidesBackButton(false, animated: true)
     }
     
-    private func configureAnimationView() {
-        animationView = .init(name: "book")
-        animationView!.frame = view.bounds
-        animationView!.contentMode = .scaleAspectFit
-        animationView!.loopMode = .loop
-        animationView!.animationSpeed = 0.5
-        view.addSubview(animationView!)
+    
+    private func configureUIView() {
+        configureAddSubviews()
+        configureConstraint()
     }
-
+    
+    private func configureAddSubviews() {
+        view.addSubview(animationView)
+        view.addSubview(messageLabel)
+    }
+    
+    
+    private func configureConstraint() {
+        animationView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(300)
+        }
+        
+        messageLabel.snp.makeConstraints { make in
+            make.top.equalTo(animationView.snp.bottom).offset(30)
+            make.height.equalTo(40)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
     private func startAnimation() {
-        animationView!.play()
+        animationView.play()
         
         switch indicatorStyle {
         case .isGenerate:
@@ -58,7 +90,7 @@ class IndicatorViewController: UIViewController {
         case .isComplete:
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
                 print("완료")
-                self.animationView!.stop()
+                self.animationView.stop()
             }
         case .none:
             print("return")
@@ -84,7 +116,7 @@ class IndicatorViewController: UIViewController {
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
-                    self.animationView?.stop()
+                    self.animationView.stop()
                     //print(response)
                     let editStoryViewController = EditStoryViewController()
                     editStoryViewController.diary = response

@@ -62,7 +62,8 @@ final class SplashViewController: UIViewController {
         NetworkService.shared.load(resource) { result in
             switch result {
             case .success(let response):
-                KeychainWrapper.standard.set(response.accessToken, forKey: Utils.ACCESS_TOEKN) 
+                KeychainWrapper.standard.set(response.accessToken, forKey: Utils.ACCESS_TOEKN)
+                print(response)
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
