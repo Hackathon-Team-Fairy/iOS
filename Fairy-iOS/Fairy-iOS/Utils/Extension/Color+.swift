@@ -9,7 +9,11 @@ import SwiftUI
 
 extension Color{
     
+    static let green1 = Color(hex: "428F71")
+    static let green2 = Color(hex: "4DAC87")
     
+    static let bookBgColor = Color(hex: "eef3ea")
+    static let bookTextColor = Color(hex: "333333")
     
 }
 
