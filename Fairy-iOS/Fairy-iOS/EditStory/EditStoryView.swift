@@ -17,37 +17,26 @@ struct EditStoryView: View {
     @State var story4: String = "가보작오"
     
     var body: some View {
-        NavigationView {
-            VStack{
-                EditTipView()
-                
-                EditTitleView(name: $title)
-                
-                EditTextTabView(story1: $story1, story2: $story2, story3: $story3, story4: $story4)
-                
-                
-//                Button {
-//                    <#code#>
-//                } label: {
-//                    <#code#>
-//                }
-
-                
-//                NavigationLink(destination: Text("오")) {
-//                    ZStack{
-//                        RoundedRectangle(cornerRadius: 15)
-//                            .foregroundColor(.gray)
-//                            .frame(width: 319, height: 50)
-//                        Text("표지 만들러가기")
-//                    }
-//                }
-
-                
-                Spacer()
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color(hex: "F3F4EC"))
+                .ignoresSafeArea()
+            
+            ScrollView{
+                VStack(spacing: 0){
+                    EditTipView()
+                        .padding(.bottom, 38)
+                    
+                    EditBookView(name: $title, story1: $story1, story2: $story2, story3: $story3, story4: $story4)
+                    
+                    Spacer()
+                }
             }
-            .onTapGesture {
-                self.endTextEditing()
-            }
+            
+            
+        }
+        .onTapGesture {
+            self.endTextEditing()
         }
         
     }
@@ -60,22 +49,56 @@ struct EditTipView: View {
     
     var body: some View {
         
-        VStack{
+        VStack(spacing: 0){
             HStack{
                 Text("이야기 내용을 편집해주세요")
-                    .foregroundColor(.black)
+                    .foregroundColor(.green1)
+                    .fontWeight(.bold)
                     .font(.system(size: 18))
                 Spacer()
             }
+            .padding(.bottom, 7)
             HStack{
-                Text("자유롭게 편집하며 나만의 이야기를 만들어보세요")
-                    .foregroundColor(.gray)
+                Text("*자유롭게 편집하며 나만의 이야기를 만들어보세요")
+                    .foregroundColor(.black)
+                    .fontWeight(.bold)
                     .font(.system(size: 14))
                 Spacer()
             }
         }
-        .padding(.horizontal)
+        .padding(.leading, 25)
     }
+}
+
+struct EditBookView: View{
+    @Binding var name: String
+    @Binding var story1: String
+    @Binding var story2: String
+    @Binding var story3: String
+    @Binding var story4: String
+    
+    var body: some View{
+        
+        ZStack{
+            VStack{
+                Spacer()
+                EditTextTabView(story1: $story1, story2: $story2, story3: $story3, story4: $story4)
+                
+            }
+            .frame(height: 500)
+            
+            VStack{
+                EditTitleView(name: $name)
+                Spacer()
+            }
+            .frame(height: 500)
+
+            
+        }
+        .frame(height: 500)
+        
+    }
+    
 }
 
 struct EditTitleView: View {
@@ -90,11 +113,12 @@ struct EditTitleView: View {
                 TextField("책 제목을 입력해주세요", text: $name)
                     .textFieldStyle(PlainTextFieldStyle())
                     .font(.system(size: 24))
+                    .fontWeight(.bold)
                 
                 Spacer()
                     
             }
-            .frame(width: 235)
+            .frame(width: 235, height: 37)
             
             if name.isEmpty{
                Rectangle()
@@ -115,21 +139,26 @@ struct EditTextTabView: View{
     
     var body: some View {
         
-        GeometryReader { geo in
-            TabView {
-                EditTextView(story: $story1)
-                EditTextView(story: $story2)
-                EditTextView(story: $story3)
-                EditTextView(story: $story4)
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-            .indexViewStyle(PageIndexViewStyle())
+        TabView {
+            EditTextView(story: $story1)
+            EditTextView(story: $story2)
+            EditTextView(story: $story3)
+            EditTextView(story: $story4)
         }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
+        .indexViewStyle(PageIndexViewStyle())
         .frame(height: 500)
-        
+        .onAppear{
+            setupAppearance()
+        }
         
     }
+    
+    func setupAppearance() {
+       UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(hexCode: "4DAC87")
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(hexCode: "4DAC87").withAlphaComponent(0.3)
+     }
 }
 
 struct EditTextView: View {
@@ -145,15 +174,17 @@ struct EditTextView: View {
         ZStack{
             
             RoundedRectangle(cornerRadius: 32)
-                .foregroundColor(.gray)
+                .foregroundColor(Color.bookBgColor)
                 .frame(width: 297, height: 359)
+                .shadow(color: Color(hex: "000000", opacity: 0.1),radius: 15, y: 4)
+            
 
             
             TextEditor(text: $story)
                           .padding()
-                          .foregroundColor(Color.black)
+                          .foregroundColor(Color.bookTextColor)
                           .font(.system(size: 20))
-                          .colorMultiply(.gray)
+                          .colorMultiply(.bookBgColor)
                           .lineSpacing(5) //줄 간격
                           .frame(width: 246, height: 359)
 
