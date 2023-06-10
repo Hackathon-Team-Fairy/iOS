@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import SwiftKeychainWrapper
 
 final class FairytaleListViewController: UIViewController {
     
@@ -73,6 +74,7 @@ final class FairytaleListViewController: UIViewController {
         configureUI()
         registerCell()
         requestFairytaleList()
+        print(KeychainWrapper.standard.string(forKey: Utils.ACCESS_TOEKN))
     }
     
     override func viewWillAppear(_ animated: Bool) {

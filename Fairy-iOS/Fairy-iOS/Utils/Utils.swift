@@ -9,6 +9,8 @@ import UIKit
 
 struct Utils {
     static let BASE_URL = "https://www.deboost.shop/"
+    static let ACCESS_TOEKN = "ACCESS_TOKEN"
+    
     
     static func getDeviceUUID() -> String {
         return UIDevice.current.identifierForVendor!.uuidString

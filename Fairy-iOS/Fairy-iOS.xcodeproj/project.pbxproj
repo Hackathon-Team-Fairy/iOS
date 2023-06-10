@@ -40,6 +40,7 @@
 		EECAE97F2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE97D2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift */; };
 		EECAE9812A34DCFF00FC0AEB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE9802A34DCFF00FC0AEB /* Utils.swift */; };
 		EECAE9842A34DF1100FC0AEB /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE9832A34DF1100FC0AEB /* TokenResponse.swift */; };
+		EECAE9872A34E73800FC0AEB /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = EECAE9862A34E73800FC0AEB /* SwiftKeychainWrapper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 			files = (
 				EEB07AD22A347588003C6AAA /* Kingfisher in Frameworks */,
 				EEB07AB82A343AFE003C6AAA /* SnapKit in Frameworks */,
+				EECAE9872A34E73800FC0AEB /* SwiftKeychainWrapper in Frameworks */,
 				57134F812A34CEC200ED4C2D /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +335,7 @@
 				EEB07AB72A343AFE003C6AAA /* SnapKit */,
 				EEB07AD12A347588003C6AAA /* Kingfisher */,
 				57134F802A34CEC200ED4C2D /* Lottie */,
+				EECAE9862A34E73800FC0AEB /* SwiftKeychainWrapper */,
 			);
 			productName = "Fairy-iOS";
 			productReference = EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */;
@@ -366,6 +369,7 @@
 				EEB07AB62A343AFE003C6AAA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EEB07AD02A347588003C6AAA /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				57134F7F2A34CEC200ED4C2D /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				EECAE9852A34E73800FC0AEB /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 			);
 			productRefGroup = EEB07AA02A34394D003C6AAA /* Products */;
 			projectDirPath = "";
@@ -656,6 +660,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		EECAE9852A34E73800FC0AEB /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -673,6 +685,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EEB07AD02A347588003C6AAA /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		EECAE9862A34E73800FC0AEB /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EECAE9852A34E73800FC0AEB /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
