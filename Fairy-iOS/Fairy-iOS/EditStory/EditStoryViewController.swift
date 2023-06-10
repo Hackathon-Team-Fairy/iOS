@@ -32,7 +32,7 @@ class EditStoryViewController: UIViewController {
         print(diary)
         
         // SwiftUI 화면을 UIKit에 통합
-        let contentView = EditStoryView()
+        let contentView = EditStoryView(diary: diary!)
         let hostingController = UIHostingController(rootView: contentView)
         addChild(hostingController)
         view.addSubview(hostingController.view)
