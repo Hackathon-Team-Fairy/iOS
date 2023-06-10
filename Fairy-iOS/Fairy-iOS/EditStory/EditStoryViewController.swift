@@ -51,6 +51,19 @@ class EditStoryViewController: UIViewController {
         hostingController.didMove(toParent: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.backAction = UIAction(handler: { action in
+            guard let navigationStacks = self.navigationController?.viewControllers else { return }
+            for viewController in navigationStacks {
+                if let vc = viewController as? CreateFairyTaleViewController {
+                    self.navigationController?.popToViewController(vc, animated: true)
+                }
+            }
+        })
+    }
+    
     @objc
     private func selectButtonTouchUpInside() {
         let creatingFairyTaleViewController = PhotoSelectViewController()

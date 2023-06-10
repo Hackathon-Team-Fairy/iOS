@@ -40,7 +40,7 @@ class IndicatorViewController: UIViewController {
         // 6. Play animation
         
         animationView!.play()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
             self.animationView!.stop()
             let editStoryViewController = EditStoryViewController()
             self.navigationController?.pushViewController(editStoryViewController, animated: true)
@@ -51,11 +51,13 @@ class IndicatorViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
+        super.viewWillAppear(animated)
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = false
+        super.viewDidDisappear(animated)
+        navigationItem.setHidesBackButton(false, animated: true)
     }
 
 }
