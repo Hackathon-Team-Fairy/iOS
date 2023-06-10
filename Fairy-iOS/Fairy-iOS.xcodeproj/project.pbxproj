@@ -36,6 +36,8 @@
 		EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD52A347C86003C6AAA /* Constant.swift */; };
 		EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AD92A348637003C6AAA /* SplashViewController.swift */; };
 		EEB07ADE2A34B275003C6AAA /* CreateFairyTaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ADD2A34B275003C6AAA /* CreateFairyTaleViewController.swift */; };
+		EECAE97E2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE97C2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift */; };
+		EECAE97F2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE97D2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		EEB07AD52A347C86003C6AAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		EEB07AD92A348637003C6AAA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		EEB07ADD2A34B275003C6AAA /* CreateFairyTaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFairyTaleViewController.swift; sourceTree = "<group>"; };
+		EECAE97C2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePhotoCategoryCell.swift; sourceTree = "<group>"; };
+		EECAE97D2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePhotoSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +150,7 @@
 		EEB07AA12A34394D003C6AAA /* Fairy-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				EEB07AE42A34C57E003C6AAA /* BasePhotoSelect */,
+				EECAE9792A34DB9600FC0AEB /* BasePhotoSelect */,
 				EEB07ABD2A34431F003C6AAA /* Utils */,
 				EEB07ABA2A3440B7003C6AAA /* Network */,
 				EEB07AB92A34404B003C6AAA /* App */,
@@ -270,27 +274,27 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		EEB07AE42A34C57E003C6AAA /* BasePhotoSelect */ = {
+		EECAE9792A34DB9600FC0AEB /* BasePhotoSelect */ = {
 			isa = PBXGroup;
 			children = (
-				EEB07AE52A34C585003C6AAA /* View */,
+				EECAE97A2A34DB9600FC0AEB /* View */,
 			);
 			path = BasePhotoSelect;
 			sourceTree = "<group>";
 		};
-		EEB07AE52A34C585003C6AAA /* View */ = {
+		EECAE97A2A34DB9600FC0AEB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EEB07AE82A34CDFF003C6AAA /* Cell */,
-				EEB07AE62A34C59F003C6AAA /* BasePhotoSelectViewController.swift */,
+				EECAE97B2A34DB9600FC0AEB /* Cell */,
+				EECAE97D2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		EEB07AE82A34CDFF003C6AAA /* Cell */ = {
+		EECAE97B2A34DB9600FC0AEB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				EEB07AE92A34CE0C003C6AAA /* BasePhotoCategoryCell.swift */,
+				EECAE97C2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -377,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB07ADE2A34B275003C6AAA /* CreateFairyTaleViewController.swift in Sources */,
+				EECAE97E2A34DB9600FC0AEB /* BasePhotoCategoryCell.swift in Sources */,
 				EEB07AC72A345234003C6AAA /* FairytaleListViewController.swift in Sources */,
 				07A3470A2A345F7800DF7BA6 /* Color+.swift in Sources */,
 				EEB07AD62A347C86003C6AAA /* Constant.swift in Sources */,
@@ -393,12 +398,11 @@
 				07A3471D2A3473E700DF7BA6 /* EditStoryView.swift in Sources */,
 				EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */,
 				EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */,
-				EEB07AEA2A34CE0C003C6AAA /* BasePhotoCategoryCell.swift in Sources */,
 				074814ED2A349EA900DF6A85 /* EditStoryViewController.swift in Sources */,
-				EEB07AE72A34C59F003C6AAA /* BasePhotoSelectViewController.swift in Sources */,
 				07A3471F2A34742700DF7BA6 /* View+.swift in Sources */,
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
 				57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */,
+				EECAE97F2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift in Sources */,
 				EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */,
 				57134F7E2A3497A500ED4C2D /* UIColor+.swift in Sources */,
 			);
