@@ -56,14 +56,22 @@
 		EEB07AA12A34394D003C6AAA /* Fairy-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EEB07AB92A34404B003C6AAA /* App */,
+				EEB07AA62A34394D003C6AAA /* ViewController.swift */,
+			);
+			path = "Fairy-iOS";
+			sourceTree = "<group>";
+		};
+		EEB07AB92A34404B003C6AAA /* App */ = {
+			isa = PBXGroup;
+			children = (
 				EEB07AA22A34394D003C6AAA /* AppDelegate.swift */,
 				EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */,
-				EEB07AA62A34394D003C6AAA /* ViewController.swift */,
 				EEB07AAB2A343950003C6AAA /* Assets.xcassets */,
 				EEB07AAD2A343950003C6AAA /* LaunchScreen.storyboard */,
 				EEB07AB02A343950003C6AAA /* Info.plist */,
 			);
-			path = "Fairy-iOS";
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +293,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H2N9KXXP3M;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Fairy-iOS/Info.plist";
+				INFOPLIST_FILE = "Fairy-iOS/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -313,7 +321,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H2N9KXXP3M;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Fairy-iOS/Info.plist";
+				INFOPLIST_FILE = "Fairy-iOS/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
