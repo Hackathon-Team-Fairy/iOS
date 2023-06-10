@@ -13,6 +13,10 @@
 		EEB07AAC2A343950003C6AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB07AAB2A343950003C6AAA /* Assets.xcassets */; };
 		EEB07AAF2A343950003C6AAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB07AAD2A343950003C6AAA /* LaunchScreen.storyboard */; };
 		EEB07AB82A343AFE003C6AAA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EEB07AB72A343AFE003C6AAA /* SnapKit */; };
+		EEB07ABC2A3440D2003C6AAA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ABB2A3440D2003C6AAA /* NetworkService.swift */; };
+		EEB07AC02A34432D003C6AAA /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07ABF2A34432D003C6AAA /* Resource.swift */; };
+		EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AC12A344379003C6AAA /* HttpMethod.swift */; };
+		EEB07AC42A344528003C6AAA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AC32A344528003C6AAA /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		EEB07AAB2A343950003C6AAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEB07AAE2A343950003C6AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EEB07AB02A343950003C6AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEB07ABB2A3440D2003C6AAA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		EEB07ABF2A34432D003C6AAA /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		EEB07AC12A344379003C6AAA /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		EEB07AC32A344528003C6AAA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 		EEB07AA12A34394D003C6AAA /* Fairy-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EEB07ABD2A34431F003C6AAA /* Utils */,
+				EEB07ABA2A3440B7003C6AAA /* Network */,
 				EEB07AB92A34404B003C6AAA /* App */,
 				EEB07AA62A34394D003C6AAA /* ViewController.swift */,
 			);
@@ -72,6 +82,32 @@
 				EEB07AB02A343950003C6AAA /* Info.plist */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		EEB07ABA2A3440B7003C6AAA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07ABB2A3440D2003C6AAA /* NetworkService.swift */,
+				EEB07AC32A344528003C6AAA /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EEB07ABD2A34431F003C6AAA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07ABE2A344324003C6AAA /* Resource */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EEB07ABE2A344324003C6AAA /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EEB07ABF2A34432D003C6AAA /* Resource.swift */,
+				EEB07AC12A344379003C6AAA /* HttpMethod.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +187,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB07AA72A34394D003C6AAA /* ViewController.swift in Sources */,
+				EEB07AC42A344528003C6AAA /* NetworkError.swift in Sources */,
 				EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */,
+				EEB07ABC2A3440D2003C6AAA /* NetworkService.swift in Sources */,
+				EEB07AC02A34432D003C6AAA /* Resource.swift in Sources */,
+				EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */,
 				EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
