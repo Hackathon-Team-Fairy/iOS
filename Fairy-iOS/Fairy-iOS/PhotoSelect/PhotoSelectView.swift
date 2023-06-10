@@ -35,6 +35,7 @@ struct PhotoSelectView: View {
             }
             .sheet(isPresented: $showImagePicker) {
                 ImagePicker(sourceType: .photoLibrary){ image in
+                    fms.imageURL = nil
                     fms.image = image
                 }
             }

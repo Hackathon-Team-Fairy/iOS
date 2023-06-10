@@ -223,6 +223,7 @@ final class BasePhotoSelectViewConotroller: UIViewController {
     @objc
     private func selectButtonTouchUpInside() {
         if let selectedImageURL {
+            FairyMakingSource.shared.image = nil
             FairyMakingSource.shared.imageURL = selectedImageURL
             dismiss(animated: true)
         } else {
