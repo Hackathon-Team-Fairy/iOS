@@ -48,6 +48,7 @@
 		EECAE9872A34E73800FC0AEB /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = EECAE9862A34E73800FC0AEB /* SwiftKeychainWrapper */; };
 		EECAE98A2A34F9CB00FC0AEB /* BaseImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE9892A34F9CB00FC0AEB /* BaseImageResponse.swift */; };
 		EECAE98E2A350D1E00FC0AEB /* BasePhotoImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE98D2A350D1E00FC0AEB /* BasePhotoImageCell.swift */; };
+		EECAE9902A35298300FC0AEB /* FairyDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAE98F2A35298300FC0AEB /* FairyDetailResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		EECAE9832A34DF1100FC0AEB /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		EECAE9892A34F9CB00FC0AEB /* BaseImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImageResponse.swift; sourceTree = "<group>"; };
 		EECAE98D2A350D1E00FC0AEB /* BasePhotoImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePhotoImageCell.swift; sourceTree = "<group>"; };
+		EECAE98F2A35298300FC0AEB /* FairyDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyDetailResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				EEB07ACD2A345F2C003C6AAA /* FairyListResponse.swift */,
+				EECAE98F2A35298300FC0AEB /* FairyDetailResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
 				074814F62A34F79500DF6A85 /* ReadingStoryView.swift in Sources */,
 				EECAE98E2A350D1E00FC0AEB /* BasePhotoImageCell.swift in Sources */,
+				EECAE9902A35298300FC0AEB /* FairyDetailResponse.swift in Sources */,
 				57134F7C2A347DFD00ED4C2D /* RegenerateAlertViewController.swift in Sources */,
 				EECAE97F2A34DB9600FC0AEB /* BasePhotoSelectViewController.swift in Sources */,
 				EEB07ADA2A348637003C6AAA /* SplashViewController.swift in Sources */,
