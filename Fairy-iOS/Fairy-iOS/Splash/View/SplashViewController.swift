@@ -14,14 +14,14 @@ final class SplashViewController: UIViewController {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: ImageNameSpace.loadingImageView.rawValue)
+        imageView.image = UIImage(named: ImageNameSpace.splashImage.rawValue)
         imageView.alpha = 0
         return imageView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hexCode: "4DAC87")
         view.addSubview(imageView)
         imageView.snp.makeConstraints {
             $0.center.equalToSuperview()
