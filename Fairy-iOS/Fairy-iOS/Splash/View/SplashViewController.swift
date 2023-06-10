@@ -36,7 +36,7 @@ final class SplashViewController: UIViewController {
         UIView.animate(withDuration: 2.0, delay: 1.5, options: .curveEaseOut, animations: {
             self.imageView.alpha = 1
         }, completion: { _ in
-            let navigaionViewController = UINavigationController(rootViewController: FairytaleListViewController())
+            let navigaionViewController = UINavigationController(rootViewController: BasePhotoSelectViewConotroller())
             self.changeRootViewController(navigaionViewController)
         })
     }
@@ -62,7 +62,8 @@ final class SplashViewController: UIViewController {
         NetworkService.shared.load(resource) { result in
             switch result {
             case .success(let response):
-                KeychainWrapper.standard.set(response.accessToken, forKey: Utils.ACCESS_TOEKN) 
+                KeychainWrapper.standard.set(response.accessToken, forKey: Utils.ACCESS_TOEKN)
+                print(response)
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
