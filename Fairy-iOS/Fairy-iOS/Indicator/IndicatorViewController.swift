@@ -24,8 +24,6 @@ class IndicatorViewController: UIViewController {
         
         configureAnimationView()
         
-        print(indicatorStyle?.rawValue)
-        
         startAnimation()
         
         // Do any additional setup after loading the view.
@@ -87,7 +85,10 @@ class IndicatorViewController: UIViewController {
             case .success(let response):
                 DispatchQueue.main.async {
                     self.animationView?.stop()
-                    print(response)
+                    //print(response)
+                    let editStoryViewController = EditStoryViewController()
+                    editStoryViewController.diary = response
+                    self.navigationController?.pushViewController(editStoryViewController, animated: true)
                 }
             case .failure(let failure):
                 print(failure.localizedDescription)
@@ -97,11 +98,3 @@ class IndicatorViewController: UIViewController {
 }
 
 
-struct QnAList: Encodable {
-    var contentList: [QnA]
-}
-
-struct QnA: Encodable {
-    var question: String
-    var answer: String
-}

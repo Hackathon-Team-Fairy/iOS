@@ -20,6 +20,7 @@
 		57134F812A34CEC200ED4C2D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 57134F802A34CEC200ED4C2D /* Lottie */; };
 		57134F842A34D15000ED4C2D /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F832A34D15000ED4C2D /* IndicatorViewController.swift */; };
 		57134F872A34D24A00ED4C2D /* book.json in Resources */ = {isa = PBXBuildFile; fileRef = 57134F862A34D24A00ED4C2D /* book.json */; };
+		57134F8A2A34FB1700ED4C2D /* QnAList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134F892A34FB1700ED4C2D /* QnAList.swift */; };
 		EEB07AA32A34394D003C6AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA22A34394D003C6AAA /* AppDelegate.swift */; };
 		EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */; };
 		EEB07AAC2A343950003C6AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB07AAB2A343950003C6AAA /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		57134F7D2A3497A500ED4C2D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		57134F832A34D15000ED4C2D /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
 		57134F862A34D24A00ED4C2D /* book.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = book.json; sourceTree = "<group>"; };
+		57134F892A34FB1700ED4C2D /* QnAList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnAList.swift; sourceTree = "<group>"; };
 		EEB07A9F2A34394D003C6AAA /* Fairy-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fairy-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB07AA22A34394D003C6AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB07AA42A34394D003C6AAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		57134F7A2A3452BC00ED4C2D /* CreatingFairyTale */ = {
 			isa = PBXGroup;
 			children = (
+				57134F882A34FADD00ED4C2D /* Model */,
 				EEB07ADD2A34B275003C6AAA /* CreateFairyTaleViewController.swift */,
 				57134F7B2A347DFD00ED4C2D /* RegenerateAlertViewController.swift */,
 			);
@@ -135,6 +138,14 @@
 				57134F862A34D24A00ED4C2D /* book.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		57134F882A34FADD00ED4C2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				57134F892A34FB1700ED4C2D /* QnAList.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EEB07A962A34394D003C6AAA = {
@@ -418,6 +429,7 @@
 				07A3471D2A3473E700DF7BA6 /* EditStoryView.swift in Sources */,
 				EEB07AC22A344379003C6AAA /* HttpMethod.swift in Sources */,
 				EEB07AA52A34394D003C6AAA /* SceneDelegate.swift in Sources */,
+				57134F8A2A34FB1700ED4C2D /* QnAList.swift in Sources */,
 				074814ED2A349EA900DF6A85 /* EditStoryViewController.swift in Sources */,
 				07A3471F2A34742700DF7BA6 /* View+.swift in Sources */,
 				EEB07ACB2A345627003C6AAA /* FairyListCollectionViewCell.swift in Sources */,
