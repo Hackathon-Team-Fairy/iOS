@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct FairyListResponse: Hashable {
-    let imageURL: URL
-    let bookName: String
-    let createDate: Date
+struct FairyListResponse: Decodable, Hashable {
+    let fairyTaleId: Int
+    let fairyTaleTitle: String
+    let fairyTaleCoverUrl: String
+    let createdAt: String
 }

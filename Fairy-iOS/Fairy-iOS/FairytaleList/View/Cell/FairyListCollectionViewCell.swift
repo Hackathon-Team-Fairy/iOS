@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 final class FairyListCollectionViewCell: UICollectionViewCell {
     
@@ -91,10 +92,12 @@ final class FairyListCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configureUI(item: FairytaleListViewController.FairyListModel) {
-        nameLabel.text = item.name
-        createDateLabel.text = item.date
-        thumbnailImageView.image = item.image
+    func configureUI(item: FairyListResponse) {
+        nameLabel.text = item.fairyTaleTitle
+        createDateLabel.text = item.createdAt
+        if let url = URL(string: item.fairyTaleCoverUrl) {
+            thumbnailImageView.kf.setImage(with: url)
+        }
     }
     
 }

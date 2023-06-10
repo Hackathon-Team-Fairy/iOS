@@ -24,7 +24,7 @@ struct Resource<T: Decodable> {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         if method == .POST,  let jsonData = try? JSONEncoder().encode(paramaters) {
             request.httpBody = jsonData
         }
