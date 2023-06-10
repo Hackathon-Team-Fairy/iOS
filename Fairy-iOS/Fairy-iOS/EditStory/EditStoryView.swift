@@ -177,7 +177,7 @@ struct EditTextView: View {
             RoundedRectangle(cornerRadius: 32)
                 .foregroundColor(Color.bookBgColor)
                 .frame(width: 297, height: 359)
-                .shadow(color: Color(hex: "000000", opacity: 0.1),radius: 15, y: 4)
+                .shadow(color: Color(hex: "000000", opacity: 0.15),radius: 15, y: 4)
             
 
             
