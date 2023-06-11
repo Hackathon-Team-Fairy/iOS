@@ -58,7 +58,7 @@ final class CreateFairyTaleViewController: UIViewController {
     private let firstQuestTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.text = "Q. 오늘 가장 특별하게 느꼈던 순간은 무엇이었나요?"
+        label.text = "1번질문. 지금 가장 이루고 싶은 소망이 무엇인가요?"
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.numberOfLines = 0
         return label
@@ -87,7 +87,7 @@ final class CreateFairyTaleViewController: UIViewController {
     private let secondQuestTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.text = "Q. 오늘 만났던 사람들 중 가장 인상 깊었던 사람은 누구였나요? 그 사람과의 만남은 어떤 경험을 가져다주었나요?"
+        label.text = "2번질문. 소망을 이루고 싶은 이유는 무엇인가요?"
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.numberOfLines = 0
         return label
@@ -116,7 +116,7 @@ final class CreateFairyTaleViewController: UIViewController {
     private let thirdQuestTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.text = "Q. 오늘 마주한 도전이나 어려움은 무엇이었나요?"
+        label.text = "3번질문. 그 소망을 이룬 나의 행복한 미래를 상상해 볼까요?"
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.numberOfLines = 0
         return label
