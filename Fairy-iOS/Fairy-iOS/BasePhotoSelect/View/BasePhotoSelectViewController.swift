@@ -34,6 +34,7 @@ final class BasePhotoSelectViewConotroller: UIViewController {
         
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
+        collectionView.isScrollEnabled = false
         
         return collectionView
     }()
@@ -132,7 +133,7 @@ final class BasePhotoSelectViewConotroller: UIViewController {
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
-
+        
         group.edgeSpacing = .init(leading: nil, top: nil, trailing: .fixed(5), bottom: nil)
         
         let section = NSCollectionLayoutSection(group: group)
@@ -216,7 +217,7 @@ final class BasePhotoSelectViewConotroller: UIViewController {
                 self.photoSnapshot = NSDiffableDataSourceSnapshot<PhotoSection, PhotoItem>()
                 self.photoSnapshot?.appendSections([.main])
                 self.photoSnapshot?.appendItems(self.imageDict[firstCategory, default: []], toSection: .main)
-
+                
                 
                 if let photoSnapshot = self.photoSnapshot {
                     self.photoDatasource?.apply(photoSnapshot)
@@ -267,11 +268,22 @@ extension BasePhotoSelectViewConotroller: UICollectionViewDelegate {
         if collectionView == photoCollectionView,
            let item = photoDatasource?.itemIdentifier(for: indexPath),
            let url = URL(string: item.image) {
-            selectButton.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 1)
-            selectButton.isEnabled = true
-            thumbnailImageView.kf.setImage(with: url)
             selectedImageURL = item.image
+            if let selectedCategory, let imageURL = selectedImageURL {
+                selectButton.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 1)
+                selectButton.isEnabled = true
+                thumbnailImageView.kf.setImage(with: url)
+                
+                self.photoSnapshot = NSDiffableDataSourceSnapshot<PhotoSection, PhotoItem>()
+                self.photoSnapshot?.appendSections([.main])
+                let images = imageDict[selectedCategory, default: []].map { PhotoItem(image: $0.image, isSelected: $0.image == imageURL)}
+                self.photoSnapshot?.appendItems(images, toSection: .main)
+                if let photoSnapshot = self.photoSnapshot {
+                    self.photoDatasource?.apply(photoSnapshot)
+                }
+            }
         }
+        
         
     }
 }
