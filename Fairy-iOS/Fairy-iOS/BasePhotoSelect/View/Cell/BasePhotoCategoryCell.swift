@@ -39,6 +39,7 @@ final class BasePhotoCategoryCell: UICollectionViewCell {
         let button = UILabel()
         button.layer.cornerRadius = 15
         button.font = .systemFont(ofSize: 16)
+        button.textColor =  UIColor(hexCode: "B0B0B0", alpha: 1)
         return button
     }()
     
@@ -57,10 +58,10 @@ final class BasePhotoCategoryCell: UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
         leftEmptyView.snp.makeConstraints {
-            $0.width.equalTo(15)
+            $0.width.equalTo(17)
         }
         rightEmptyView.snp.makeConstraints {
-            $0.width.equalTo(15)
+            $0.width.equalTo(17)
         }
     }
     
@@ -71,8 +72,17 @@ final class BasePhotoCategoryCell: UICollectionViewCell {
     
     // MARK: - Helpers
     
-    func configureUI(title: String) {
-        categoryButton.text = title
+    func configureUI(item: CategoryItem) {
+        categoryButton.text = item.name
+        if item.isSelected {
+            stackView.backgroundColor = UIColor(hexCode: "4DAC87", alpha: 0.1)
+            categoryButton.textColor = UIColor(hexCode: "4DAC87", alpha: 1)
+            stackView.layer.borderColor = UIColor(hexCode: "4DAC87", alpha: 1).cgColor
+        } else {
+            stackView.backgroundColor = .clear
+            categoryButton.textColor = UIColor(hexCode: "B0B0B0", alpha: 1)
+            stackView.layer.borderColor = UIColor(hexCode: "B0B0B0", alpha: 1).cgColor
+        }
     }
     
 }

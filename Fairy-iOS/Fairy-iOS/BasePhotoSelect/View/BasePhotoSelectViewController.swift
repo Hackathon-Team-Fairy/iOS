@@ -173,7 +173,7 @@ final class BasePhotoSelectViewConotroller: UIViewController {
             collectionView: categoryCollectionView,
             cellProvider: { collectionView, indexPath, item in
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasePhotoCategoryCell.identifier, for: indexPath) as? BasePhotoCategoryCell else { return UICollectionViewCell() }
-                cell.configureUI(title: item)
+                cell.configureUI(item: item)
                 
                 return cell
             })
@@ -206,10 +206,12 @@ final class BasePhotoSelectViewConotroller: UIViewController {
                 response.forEach { self.imageDict[$0.type] = $0.imagesList.map { PhotoItem(image: $0) }  }
                 var categorySnapshot = NSDiffableDataSourceSnapshot<CategorySection, CategoryItem>()
                 categorySnapshot.appendSections([.main])
-                categorySnapshot.appendItems(self.imageDict.keys.map { String($0) }.sorted())
+                let firstCategory = self.imageDict.keys.map { String($0) }.sorted().first!
+                categorySnapshot.appendItems(self.imageDict.keys.map { CategoryItem(name: $0, isSelected: $0 == firstCategory) }.sorted { $0.name < $1.name })
                 self.categoryDatasource?.apply(categorySnapshot)
                 
-                let firstCategory = self.imageDict.keys.map { String($0) }.sorted().first!
+                self.selectedCategory = firstCategory
+                
                 
                 self.photoSnapshot = NSDiffableDataSourceSnapshot<PhotoSection, PhotoItem>()
                 self.photoSnapshot?.appendSections([.main])
@@ -248,11 +250,17 @@ extension BasePhotoSelectViewConotroller: UICollectionViewDelegate {
            let item = categoryDatasource?.itemIdentifier(for: indexPath) {
             self.photoSnapshot = NSDiffableDataSourceSnapshot<PhotoSection, PhotoItem>()
             self.photoSnapshot?.appendSections([.main])
-            self.photoSnapshot?.appendItems(imageDict[item, default: []], toSection: .main)
-            selectedCategory = item
+            self.photoSnapshot?.appendItems(imageDict[item.name, default: []], toSection: .main)
+            selectedCategory = item.name
             
             if let photoSnapshot {
                 photoDatasource?.apply(photoSnapshot)
+            }
+            if let selectedCategory {
+                var categorySnapshot = NSDiffableDataSourceSnapshot<CategorySection, CategoryItem>()
+                categorySnapshot.appendSections([.main])
+                categorySnapshot.appendItems(self.imageDict.keys.map { CategoryItem(name: $0, isSelected: $0 == selectedCategory) }.sorted { $0.name < $1.name })
+                self.categoryDatasource?.apply(categorySnapshot)
             }
         }
         
@@ -275,15 +283,15 @@ extension BasePhotoSelectViewConotroller {
         case main
     }
     
-    typealias CategoryItem = String
-    
     enum PhotoSection {
         case main
     }
     
-//    typealias PhotoItem = String
-    
-   
+}
+
+struct CategoryItem: Hashable {
+    let name: String
+    var isSelected: Bool = false
 }
 
 struct PhotoItem: Hashable {
